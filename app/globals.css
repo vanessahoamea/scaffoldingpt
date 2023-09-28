@@ -2,26 +2,32 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+nav .web-menu {
+    @apply hidden md:flex items-center space-x-5;
 }
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+nav .web-menu-link {
+    @apply px-2 relative;
+    @apply transition-colors duration-200;
 }
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+nav .web-menu-link:hover {
+    @apply text-primary;
+}
+nav .web-menu-link::after {
+    content: "";
+    @apply h-0.5 w-full absolute left-0 -bottom-5 bg-primary pointer-events-none;
+    @apply transform scale-x-0 origin-bottom-left;
+    @apply transition-transform duration-200 ease-in-out;
+}
+nav .web-menu-link:hover::after {
+    @apply transform scale-x-100;
+}
+nav .social-media-link {
+    @apply text-4xl text-primary;
+    @apply transition-colors duration-200;
+}
+nav .social-media-link:hover {
+    @apply text-black;
+}
+nav .mobile-menu a {
+    @apply block p-4 hover:bg-primary hover:text-white;
 }
