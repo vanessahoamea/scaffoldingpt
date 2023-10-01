@@ -11,7 +11,7 @@ export default function Navbar()
                 <div className="px-8 py-4 flex justify-between items-center">
                     <h2 className="font-bold text-primary text-2xl">Scaffolding</h2>
 
-                    <div className="web-menu">
+                    <div className="hidden md:flex items-center space-x-5">
                         <Link className="web-menu-link" href="/">Acasă</Link>
                         <Link className="web-menu-link" href="/about">Despre noi</Link>
                         <Link className="web-menu-link" href="/services">Servicii</Link>

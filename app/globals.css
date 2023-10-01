@@ -2,9 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-nav .web-menu {
-    @apply hidden md:flex items-center space-x-5;
-}
 nav .web-menu-link {
     @apply px-2 relative;
     @apply transition-colors duration-200;
