@@ -6,7 +6,7 @@ import { faFacebook } from "@fortawesome/free-brands-svg-icons";
 export default function Navbar()
 {
     return (
-        <nav className="bg-gray-100 mx-auto">
+        <nav className="bg-white mx-auto">
             <div className="p-4">
                 <div className="px-8 py-4 flex justify-between items-center">
                     <h2 className="font-bold text-primary text-2xl">Scaffolding</h2>
@@ -31,7 +31,7 @@ export default function Navbar()
                 </div>
             </div>
 
-            <div className="mobile-menu md:hidden">
+            <div className="mobile-menu hidden">
                 <Link href="/">Acasă</Link>
                 <Link href="/about">Despre noi</Link>
                 <Link href="/services">Servicii</Link>

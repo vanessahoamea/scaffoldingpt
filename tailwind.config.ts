@@ -10,6 +10,10 @@ const config: Config = {
     extend: {
       colors: {
         primary: "#0170b9"
+      },
+      brightness: {
+        25: ".25",
+        45: ".45"
       }
     },
   },
