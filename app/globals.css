@@ -2,29 +2,29 @@
 @tailwind components;
 @tailwind utilities;
 
-nav .web-menu-link {
+header .web-menu-link {
     @apply px-2 relative;
     @apply transition-colors duration-200;
 }
-nav .web-menu-link:hover {
+header .web-menu-link:hover {
     @apply text-primary;
 }
-nav .web-menu-link::after {
+header .web-menu-link::after {
     content: "";
     @apply h-0.5 w-full absolute left-0 -bottom-5 bg-primary pointer-events-none;
     @apply transform scale-x-0 origin-bottom-left;
     @apply transition-transform duration-200 ease-in-out;
 }
-nav .web-menu-link:hover::after {
+header .web-menu-link:hover::after {
     @apply transform scale-x-100;
 }
-nav .social-media-link {
+header .social-media-link {
     @apply text-4xl text-primary;
     @apply transition-colors duration-200;
 }
-nav .social-media-link:hover {
+header .social-media-link:hover {
     @apply text-black;
 }
-nav .mobile-menu a {
+header .mobile-menu a {
     @apply block p-4 hover:bg-primary hover:text-white;
 }
