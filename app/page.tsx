@@ -22,13 +22,12 @@ export default function Home()
             
             <motion.section
                 className="px-16 pt-20"
-                initial="hide"
-                whileInView="show"
-                exit="show"
+                initial="hidden"
+                whileInView="visible"
                 viewport={{ once: true }}
                 variants={{
-                    hide: { opacity: 0, x: -500 },
-                    show: { opacity: 1, x: 0, transition: { duration: 1 } }
+                    hidden: { opacity: 0, x: -250 },
+                    visible: { opacity: 1, x: 0, transition: { duration: 1 } }
                 }}
             >
                 <h2 className="text-primary text-3xl font-bold">Despre Scaffolding</h2>
@@ -36,14 +35,13 @@ export default function Home()
             </motion.section>
 
             <motion.section
-                className="px-16 py-20"
-                initial="hide"
-                whileInView="show"
-                exit="show"
+                className="px-16 pt-20"
+                initial="hidden"
+                whileInView="visible"
                 viewport={{ once: true }}
                 variants={{
-                    hide: { opacity: 0, x: 500 },
-                    show: { opacity: 1, x: 0, transition: { duration: 1 } }
+                    hidden: { opacity: 0, x: 250 },
+                    visible: { opacity: 1, x: 0, transition: { duration: 1 } }
                 }}
             >
                 <h2 className="text-primary text-3xl font-bold">Cu ce ne ocupăm</h2>

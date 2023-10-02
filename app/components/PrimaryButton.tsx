@@ -2,7 +2,8 @@
 
 import { useRouter } from "next/navigation";
 
-interface PrimaryButtonProps {
+interface PrimaryButtonProps
+{
     text: string,
     path: string
 };
