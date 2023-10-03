@@ -5,7 +5,7 @@ import { faFacebookSquare, faWhatsappSquare } from "@fortawesome/free-brands-svg
 export default function Footer()
 {
     return (
-        <footer className="mt-20 bg-gray-900 text-white">
+        <footer className="bg-gray-900 text-white">
             <main className="px-8 py-4 flex flex-col items-start justify-start gap-8 md:flex-row md:justify-between md:gap-20">
                 <section className="basis-2/4">
                     <div className="flex items-center space-x-5">
@@ -56,8 +56,8 @@ export default function Footer()
 
             <hr />
 
-            <div className="p-4 text-center flex flex-col md:flex-row justify-center items-center">
-                <span>&copy; Copyright 2023 Scaffolding Proffesional Team.&nbsp;</span>
+            <div className="p-4 text-center flex flex-wrap justify-center items-center">
+                <span>&copy; Copyright 2023 Scaffolding Professional Team.&nbsp;</span>
                 <span>All Rights Reserved.</span>
             </div>
         </footer>

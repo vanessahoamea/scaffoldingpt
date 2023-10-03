@@ -7,7 +7,7 @@ export default function Navbar()
 {
     return (
         <header className="bg-white mx-auto">
-            <nav className="px-8 py-4 flex justify-between items-center">
+            <nav className="px-8 py-3 flex justify-between items-center">
                 <Link href="/">
                     <img src="./logo.png" alt="Site logo" className="w-20" />
                 </Link>
