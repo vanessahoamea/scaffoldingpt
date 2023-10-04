@@ -8,7 +8,7 @@ export default function Footer()
         <footer className="bg-gray-900 text-white">
             <main className="px-8 py-4 flex flex-col items-start justify-start gap-8 md:flex-row md:justify-between md:gap-20">
                 <section className="basis-2/4">
-                    <div className="flex items-center space-x-5">
+                    <div className="flex items-center gap-5">
                         <img src="/logo.png" alt="Company logo" className="w-20" />
                         <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestias corrupti nisi omnis dolores excepturi a?</p>
                     </div>

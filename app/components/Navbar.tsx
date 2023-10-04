@@ -12,7 +12,7 @@ export default function Navbar()
                     <img src="./logo.png" alt="Site logo" className="w-20" />
                 </Link>
 
-                <div className="hidden md:flex items-center space-x-5">
+                <div className="hidden md:flex items-center gap-5">
                     <Link className="web-menu-link" href="/">Acasă</Link>
                     <Link className="web-menu-link" href="/about">Despre noi</Link>
                     <Link className="web-menu-link" href="/services">Servicii</Link>

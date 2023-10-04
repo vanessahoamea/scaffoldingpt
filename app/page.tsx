@@ -8,7 +8,7 @@ export default function Home()
     return (
         <main className="overflow-x-hidden">
             <div className="h-screen relative overflow-hidden text-white text-center">
-                <img 
+                <img
                     src="/banner.jpg"
                     alt="Site banner"
                     className="w-full h-screen object-cover brightness-45 select-none pointer-events-none"
