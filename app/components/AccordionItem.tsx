@@ -42,7 +42,7 @@ export default function AccordionItem(props: AccordionItemProps)
                         open: { opacity: 1, height: "auto" }
                     }}
                     transition={{ duration: 0.25 }}
-                    className="border-l-2 border-l-primary ml-2 px-4"
+                    className="border-l-2 border-l-primary mx-2 px-4"
                 >
                     <h4 className="mt-3 text-primary font-semibold">Descriere</h4>
                     <p>{props.content}</p>

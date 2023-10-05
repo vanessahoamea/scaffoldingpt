@@ -63,7 +63,7 @@ export default function ContactForm()
             />
             <button 
                 type="button"
-                className="w-fit px-5 py-2 border-2 border-primary text-primary hover:bg-primary hover:text-white rounded"
+                className="px-5 py-2 border-2 border-primary text-primary hover:bg-primary hover:text-white rounded"
                 onClick={sendMessage}
             >
                 Trimite
