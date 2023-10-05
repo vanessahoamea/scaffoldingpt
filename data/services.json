@@ -1,0 +1,28 @@
+{
+    "data": [
+        {
+            "id": 1,
+            "title": "Montare și Demontare Schele",
+            "content": "Oferim servicii profesionale de montare și demontare a schelelor pentru a asigura un mediu de lucru sigur și eficient pe șantier. Echipa noastră de experți vă va ajuta să alegeți și să amplasați schelele potrivite pentru proiectul dvs., iar apoi le va monta și demonta în conformitate cu cele mai stricte norme de siguranță.",
+            "prices": "Prețuri începând de la XX RON. Tarife speciale pentru proiecte de durată sau volume mari."
+        },
+        {
+            "id": 2,
+            "title": "Închiriere Schele",
+            "content": "Pentru cei care preferă să își gestioneze propriile proiecte, oferim servicii de închiriere a schelelor. Avem o gamă variată de schele disponibile pentru închiriere, adecvate pentru o varietate de aplicații. Acestea sunt întreținute regulat și respectă cele mai înalte standarde de siguranță.",
+            "prices": "Închirierea schelelor începe de la XX RON pe zi/săptămână/lună. Reduceri disponibile pentru închirieri pe termen lung."
+        },
+        {
+            "id": 3,
+            "title": "Închiriere de Materiale pentru Schele",
+            "content": "În plus față de schelele în sine, punem la dispoziția clienților noștri o gamă completă de materiale și accesorii necesare pentru construcția și întreținerea schelelor. De la plase de protecție la scări și accesorii de siguranță, avem tot ceea ce aveți nevoie pentru a vă asigura că proiectul dvs. se desfășoară fără probleme.",
+            "prices": "Costurile materialelor variază în funcție de tip și cantitate. Pentru detalii specifice, vă rugăm să ne contactați pentru o ofertă personalizată."
+        },
+        {
+            "id": 4,
+            "title": "Consultanță Profesională",
+            "content": "Echipa noastră de specialiști în schele stă la dispoziția dvs. pentru a vă oferi consultanță profesională. Vă putem ajuta cu proiectarea și amplasarea corectă a schelelor, asigurându-ne că sunt conforme cu toate cerințele de siguranță și reglementările aplicabile.",
+            "prices": "Serviciile de consultanță sunt tarifate în funcție de complexitatea proiectului și nivelul de implicare necesar."
+        }
+    ]
+}
