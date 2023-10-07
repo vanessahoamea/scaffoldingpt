@@ -40,7 +40,7 @@ export default function Contact()
 
             <section className="px-16 pt-20 pb-20 flex flex-col gap-5 md:flex-row md:gap-12">
                 <div className="basis-1/2">
-                    <h2 className="text-primary text-3xl text-left font-bold">Trimiteți-ne un mesaj</h2>
+                    <h2 className="text-primary text-3xl font-bold">Trimiteți-ne un mesaj</h2>
                     <p className="my-2">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Exercitationem nesciunt quam vitae similique in nam nostrum nobis, velit sunt quas culpa error fuga facere fugiat!</p>
                 </div>
                 <ContactForm />

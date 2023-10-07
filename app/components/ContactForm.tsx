@@ -6,6 +6,7 @@ export default function ContactForm()
 {
     const [values, setValues] = useState({
         name: "",
+        phone: "",
         email: "",
         subject: "",
         message: ""
@@ -32,6 +33,15 @@ export default function ContactForm()
                 id="name"
                 placeholder="Nume"
                 value={values.name}
+                onChange={handleForm}
+            />
+            <input
+                className="w-full border border-gray-500 rounded-sm mb-3 p-2"
+                type="tel"
+                name="phone"
+                id="phone"
+                placeholder="Număr de telefon"
+                value={values.phone}
                 onChange={handleForm}
             />
             <input

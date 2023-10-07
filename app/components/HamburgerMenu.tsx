@@ -12,7 +12,7 @@ export default function HamburgerMenu()
     }
     
     return (
-        <button onClick={toggleMenu}>
+        <button className="text-xl" onClick={toggleMenu}>
             <FontAwesomeIcon icon={faBars} />
         </button>
     );
