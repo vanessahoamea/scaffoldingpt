@@ -1,0 +1,27 @@
+import EmailTemplate from "@/app/components/EmailTemplate";
+import { NextResponse } from "next/server";
+import { Resend } from "resend";
+
+const resend = new Resend(process.env.RESEND_API_KEY);
+
+export async function POST(request: Request)
+{
+    const body = await request.json();
+
+    if(!body.name || !body.subject || !body.message || (!body.phone.trim() && !body.email.trim()))
+        throw new Error("Please fill in all the required fields.");
+
+    try {
+        const data = await resend.emails.send({
+            from: "contact@scaffoldingpt.ro",
+            to: "scaffoldingpt@gmail.ro",
+            subject: `[CONTACT] ${body.subject}`,
+            react: EmailTemplate(body)
+        });
+
+        return NextResponse.json({ data });
+    }
+    catch(error) {
+        return NextResponse.json({ error });
+    }
+}

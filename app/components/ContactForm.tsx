@@ -1,6 +1,6 @@
 "use client";
 
-import { ChangeEvent, MouseEvent, useState } from "react";
+import { ChangeEvent, useState } from "react";
 
 export default function ContactForm()
 {
@@ -19,9 +19,38 @@ export default function ContactForm()
         });
     }
 
-    function sendMessage(e: MouseEvent): void
+    async function sendMessage(): Promise<void>
     {
-        // TODO
+        // validate form fields
+        if(!values.name || !values.subject || !values.message)
+        {
+            alert("Vă rugăm să specificați numele dvs., subiectul mesajului, precum și mesajul propriu-zis.");
+            return;
+        }
+        if(!values.phone.trim() && !values.email.trim())
+        {
+            alert("Vă rugăm să furnizați cel puțin o metodă de contact (adresă de e-mail sau număr de telefon).");
+            return;
+        }
+
+        // send user's message
+        fetch("/api/email", { method: "POST", body: JSON.stringify(values) })
+        .then((res) => {
+            if(!res.ok)
+                throw new Error("Mesajul dvs. nu a putut fi trimis. Vă rugăm să încercați din nou mai târziu.");
+            return res.json();
+        })
+        .then((_) => {
+            alert("Mesajul dvs. a fost trimis cu succes. :)");
+            setValues((_) => ({
+                name: "",
+                phone: "",
+                email: "",
+                subject: "",
+                message: ""
+            }));
+        })
+        .catch((err) => alert(err));
     }
     
     return (
