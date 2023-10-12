@@ -21,19 +21,19 @@ export default function Contact()
                 <h2 className="text-primary text-3xl font-bold">Luați legătura cu noi</h2>
                 <div className="my-2 flex flex-col gap-1 md:flex-row">
                     <ContactDetails icon={faLocationDot} text="Sediu">
-                        <>
-                            <p>II Nistor C Victor</p>
-                            <p>Bogonos, 707281, Iași</p>
-                        </>
+                        <p className="text-center">
+                            II Nistor C Victor<br />
+                            Bogonos, 707281, Iași
+                        </p>
                     </ContactDetails>
                     <ContactDetails icon={faEnvelope} text="E-mail">
-                        scaffoldingpt@gmail.com
+                        <p className="text-center">scaffoldingpt@gmail.com</p>
                     </ContactDetails>
                     <ContactDetails icon={faPhone} text="Telefon">
-                        <>
-                            <p>Mobil: +40 (742) 337 996</p>
-                            <p>WhatsApp: +40 (766) 453 808</p>
-                        </>
+                        <p className="text-center">
+                            Mobil: +40 (742) 337 996<br />
+                            WhatsApp: +40 (766) 453 808
+                        </p>
                     </ContactDetails>
                 </div>
             </section>

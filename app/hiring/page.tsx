@@ -13,7 +13,37 @@ export default function Hiring()
                 </div>
             </div>
 
-            <p className="p-8">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga impedit, officiis ipsa aliquid possimus inventore voluptate laborum maxime labore in, soluta illo hic, quis quidem harum fugit. Possimus ex ipsam, placeat necessitatibus error et quas, consequatur beatae ratione voluptatum nostrum, amet delectus. Laboriosam voluptas animi quisquam neque aut quae totam voluptatem nesciunt deleniti temporibus beatae doloremque aspernatur dolor quibusdam natus eveniet recusandae libero, dignissimos pariatur non magnam? Veniam dolore repellat nam nulla assumenda nisi nostrum esse, nemo, aliquam odit aperiam recusandae dolorem dolores itaque impedit quaerat autem aliquid dolorum? Vel, iure consectetur blanditiis natus voluptate maiores neque incidunt totam repellendus.</p>
+            <section className="px-16 pt-20">
+                <h2 className="text-primary text-5xl text-center font-bold">Echipa Noastră Caută Talente Noi!</h2>
+                <p className="my-2 text-center">Sunteți pasionat de construcții și doriți să vă alăturați unei echipe profesioniste în domeniul schelelor? Scaffolding Professional Team este în căutarea de schelari dornici să facă parte din echipa noastră dinamică și să învețe de la cei mai buni. Indiferent dacă sunteți cu sau fără experiență, vă oferim oportunitatea de a vă dezvolta cariera într-un mediu înalt calificat.</p>
+            </section>
+
+            <div className="hiring flex flex-col md:flex-row md:gap-5 md:px-16 md:pt-20">
+                <section className="basis-1/2 px-16 pt-20 md:p-0">
+                    <h2 className="text-primary text-3xl font-bold">Ce oferim</h2>
+                    <ul className="my-2 md:mb-0">
+                        <li>Oportunitatea de a lucra cu o echipă cu peste 30 de ani de experiență în industria schelelor.</li>
+                        <li>Formare și mentorat pentru cei fără experiență, pentru a vă dezvolta abilitățile.</li>
+                        <li>Proiecte variate și provocări constante pentru a vă menține angajați și implicați.</li>
+                        <li>Mediu de lucru sigur și echipament de protecție de înaltă calitate.</li>
+                        <li>Șansa de a contribui la proiecte de construcție impresionante.</li>
+                    </ul>
+                </section>
+
+                <section className="basis-1/2 px-16 pt-20 md:p-0">
+                    <h2 className="text-primary text-3xl font-bold">Cerințe</h2>
+                    <ul className="my-2 md:mb-0">
+                        <li>Dedicare și dorință de a învăța.</li>
+                        <li>Abilitatea de a lucra în echipă și de a urma instrucțiunile cu atenție.</li>
+                        <li>Atitudine pozitivă și pasiune pentru industria construcțiilor.</li>
+                    </ul>
+                </section>
+            </div>
+
+            <section className="px-16 pt-20 pb-20">
+                <h2 className="text-primary text-3xl font-bold">Vino în echipa noastră</h2>
+                <p className="my-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam corrupti iusto obcaecati quas officia, suscipit quia earum ad saepe! Vel amet quasi nulla corporis consectetur nobis tempore doloribus voluptatem doloremque.</p>
+            </section>
         </main>
     );
 }
