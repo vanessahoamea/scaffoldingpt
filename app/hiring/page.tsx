@@ -1,3 +1,5 @@
+import ApplyForm from "../components/ApplyForm";
+
 export default function Hiring()
 {
     return (
@@ -18,7 +20,7 @@ export default function Hiring()
                 <p className="my-2 text-center">Sunteți pasionat de construcții și doriți să vă alăturați unei echipe profesioniste în domeniul schelelor? Scaffolding Professional Team este în căutarea de schelari dornici să facă parte din echipa noastră dinamică și să învețe de la cei mai buni. Indiferent dacă sunteți cu sau fără experiență, vă oferim oportunitatea de a vă dezvolta cariera într-un mediu înalt calificat.</p>
             </section>
 
-            <div className="hiring flex flex-col md:flex-row md:gap-5 md:px-16 md:pt-20">
+            <div className="hiring flex flex-col md:flex-row md:gap-5 md:px-16 md:pt-20" role="group">
                 <section className="basis-1/2 px-16 pt-20 md:p-0">
                     <h2 className="text-primary text-3xl font-bold">Ce oferim</h2>
                     <ul className="my-2 md:mb-0">
@@ -42,7 +44,8 @@ export default function Hiring()
 
             <section className="px-16 pt-20 pb-20">
                 <h2 className="text-primary text-3xl font-bold">Vino în echipa noastră</h2>
-                <p className="my-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam corrupti iusto obcaecati quas officia, suscipit quia earum ad saepe! Vel amet quasi nulla corporis consectetur nobis tempore doloribus voluptatem doloremque.</p>
+                <p className="my-2">Alăturați-vă Scaffolding Professional Team și faceți parte dintr-o echipă care pune siguranța și calitatea pe primul loc în fiecare proiect! Completați formularul de mai jos, iar noi vă vom contacta ulterior pentru a discuta detaliile angajării dvs.</p>
+                <ApplyForm />
             </section>
         </main>
     );

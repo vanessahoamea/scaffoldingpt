@@ -37,7 +37,10 @@ footer .social-media-link {
     @apply text-5xl text-white mx-1 cursor-pointer;
 }
 
+.hiring ul li {
+    @apply pl-4;
+}
 .hiring ul li::before {
     content: "\2022";
-    @apply text-primary text-xl font-bold inline-block w-4;
+    @apply text-primary text-xl font-bold inline-block w-4 -ml-4;
 }

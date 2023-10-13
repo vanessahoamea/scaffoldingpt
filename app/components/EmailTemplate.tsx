@@ -7,7 +7,7 @@ interface EmailTemplateProps
     message: string
 };
 export default function EmailTemplate(props: EmailTemplateProps)
-{    
+{
     return (
         <>
             <h1>Testing Resend with Next.js</h1>
