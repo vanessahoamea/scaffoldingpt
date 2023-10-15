@@ -8,7 +8,10 @@ export async function POST(request: Request)
 {
     const body = await request.json();
 
-    if(!body.name || !body.surname || (!body.phone.trim() && !body.email.trim()))
+    if(
+        !body.name.trim() || !body.surname.trim() || !body.comments.trim() || 
+        (!body.phone.trim() && !body.email.trim())
+    )
         throw new Error("Please fill in all the required fields.");
 
     try {

@@ -8,6 +8,8 @@ export default function ContactForm()
         name: "",
         phone: "",
         email: "",
+        height: "",
+        place: "",
         subject: "",
         message: ""
     });
@@ -22,9 +24,12 @@ export default function ContactForm()
     async function sendMessage(): Promise<void>
     {
         // validate form fields
-        if(!values.name || !values.subject || !values.message)
+        if(
+            !values.name.trim() || !values.subject.trim() || !values.message.trim() || 
+            !values.height.trim() || !values.place.trim()
+        )
         {
-            alert("Vă rugăm să specificați numele dvs., subiectul mesajului, precum și mesajul propriu-zis.");
+            alert("Vă rugăm să specificați numele dvs., înălțimea și localizarea lucrării dorite, subiectul mesajului, precum și mesajul propriu-zis.");
             return;
         }
         if(!values.phone.trim() && !values.email.trim())
@@ -46,6 +51,8 @@ export default function ContactForm()
                 name: "",
                 phone: "",
                 email: "",
+                height: "",
+                place: "",
                 subject: "",
                 message: ""
             }));
@@ -59,34 +66,50 @@ export default function ContactForm()
                 className="w-full border border-gray-500 rounded-sm mb-3 p-2"
                 type="text"
                 name="name"
-                id="name"
                 placeholder="Nume"
                 value={values.name}
                 onChange={handleForm}
             />
-            <input
-                className="w-full border border-gray-500 rounded-sm mb-3 p-2"
-                type="tel"
-                name="phone"
-                id="phone"
-                placeholder="Număr de telefon"
-                value={values.phone}
-                onChange={handleForm}
-            />
-            <input
-                className="w-full border border-gray-500 rounded-sm mb-3 p-2"
-                type="text"
-                name="email"
-                id="email"
-                placeholder="Adresă de e-mail"
-                value={values.email}
-                onChange={handleForm}
-            />
+            <div className="flex flex-col md:flex-row md:gap-2 w-full" role="group">
+                <input
+                    className="w-full border border-gray-500 rounded-sm mb-3 p-2"
+                    type="tel"
+                    name="phone"
+                    placeholder="Număr de telefon"
+                    value={values.phone}
+                    onChange={handleForm}
+                />
+                <input
+                    className="w-full border border-gray-500 rounded-sm mb-3 p-2"
+                    type="text"
+                    name="email"
+                    placeholder="Adresă de e-mail"
+                    value={values.email}
+                    onChange={handleForm}
+                />
+            </div>
+            <div className="flex flex-col md:flex-row md:gap-2 w-full" role="group">
+                <input
+                    className="w-full border border-gray-500 rounded-sm mb-3 p-2"
+                    type="tel"
+                    name="height"
+                    placeholder="Înălțime lucrare"
+                    value={values.height}
+                    onChange={handleForm}
+                />
+                <input
+                    className="w-full border border-gray-500 rounded-sm mb-3 p-2"
+                    type="text"
+                    name="place"
+                    placeholder="Localizare lucrare"
+                    value={values.place}
+                    onChange={handleForm}
+                />
+            </div>
             <input
                 className="w-full border border-gray-500 rounded-sm mb-3 p-2"
                 type="text"
                 name="subject"
-                id="subject"
                 placeholder="Subiect"
                 value={values.subject}
                 onChange={handleForm}
@@ -95,7 +118,6 @@ export default function ContactForm()
                 className="w-full border border-gray-500 rounded-sm resize-none mb-3 p-2"
                 rows={5}
                 name="message"
-                id="message"
                 placeholder="Mesaj"
                 value={values.message}
                 onChange={handleForm}

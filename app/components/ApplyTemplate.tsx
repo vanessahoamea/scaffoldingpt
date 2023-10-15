@@ -3,7 +3,8 @@ interface ApplyTemplateProps
     name: string,
     surname: string,
     phone: string,
-    email: string
+    email: string,
+    comments: string
 };
 export default function ApplyTemplate(props: ApplyTemplateProps)
 {
@@ -13,6 +14,7 @@ export default function ApplyTemplate(props: ApplyTemplateProps)
             <p>Nume: {props.name} {props.surname}</p>
             <p>Număr de telefon: {props.phone}</p>
             <p>Adresă de e-mail: {props.email}</p>
+            <p>Comentarii: {props.comments}</p>
         </>
     );
 }

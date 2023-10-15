@@ -8,10 +8,11 @@ export default function ApplyForm()
         name: "",
         surname: "",
         phone: "",
-        email: ""
+        email: "",
+        comments: ""
     });
 
-    function handleForm(e: ChangeEvent<HTMLInputElement>): void
+    function handleForm(e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>): void
     {
         setValues((values) => {
             return { ...values, [e.target.name]: e.target.value };
@@ -21,7 +22,7 @@ export default function ApplyForm()
     async function sendApplication(): Promise<void>
     {
         // validate form fields
-        if(!values.name || !values.surname)
+        if(!values.name.trim() || !values.surname.trim())
         {
             alert("Vă rugăm să specificați numele dvs. complet.");
             return;
@@ -45,7 +46,8 @@ export default function ApplyForm()
                 name: "",
                 surname: "",
                 phone: "",
-                email: ""
+                email: "",
+                comments: ""
             }));
         })
         .catch((err) => alert(err));
@@ -53,12 +55,11 @@ export default function ApplyForm()
 
     return (
         <form className="my-2 flex flex-col items-center">
-            <div className="flex flex-col md:flex-row md:gap-5 w-full" role="group">
+            <div className="flex flex-col md:flex-row md:gap-2 w-full" role="group">
                 <input
                     className="w-full border border-gray-500 rounded-sm mb-3 p-2"
                     type="text"
                     name="name"
-                    id="name"
                     placeholder="Prenume"
                     value={values.name}
                     onChange={handleForm}
@@ -67,18 +68,16 @@ export default function ApplyForm()
                     className="w-full border border-gray-500 rounded-sm mb-3 p-2"
                     type="text"
                     name="surname"
-                    id="surname"
                     placeholder="Nume"
                     value={values.surname}
                     onChange={handleForm}
                 />
             </div>
-            <div className="flex flex-col md:flex-row md:gap-5 w-full" role="group">
+            <div className="flex flex-col md:flex-row md:gap-2 w-full" role="group">
                 <input
                     className="w-full border border-gray-500 rounded-sm mb-3 p-2"
                     type="tel"
                     name="phone"
-                    id="phone"
                     placeholder="Număr de telefon"
                     value={values.phone}
                     onChange={handleForm}
@@ -87,12 +86,19 @@ export default function ApplyForm()
                     className="w-full border border-gray-500 rounded-sm mb-3 p-2"
                     type="text"
                     name="email"
-                    id="email"
                     placeholder="Adresă de e-mail"
                     value={values.email}
                     onChange={handleForm}
             />
             </div>
+            <textarea
+                className="w-full border border-gray-500 rounded-sm resize-none mb-3 p-2"
+                rows={3}
+                name="comments"
+                placeholder="Comentarii"
+                value={values.comments}
+                onChange={handleForm}
+            />
             <button 
                 type="button"
                 className="px-5 py-2 border-2 border-primary text-primary hover:bg-primary hover:text-white rounded"
