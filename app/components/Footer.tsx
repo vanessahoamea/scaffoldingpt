@@ -4,13 +4,15 @@ import { faFacebookSquare, faWhatsappSquare } from "@fortawesome/free-brands-svg
 
 export default function Footer()
 {
+    const year = new Date().getFullYear();
+    
     return (
         <footer className="bg-gray-900 text-white">
             <main className="px-8 py-4 flex flex-col items-start justify-start gap-8 md:flex-row md:justify-between md:gap-20">
                 <section className="basis-2/4">
                     <div className="flex items-center gap-5">
                         <img src="/logo.png" alt="Company logo" className="w-20" />
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestias corrupti nisi omnis dolores excepturi a?</p>
+                        <p>Scaffolding Professional Team se angajează să ofere servicii de înaltă calitate în domeniul schelelor. Misiunea noastră este să fim lideri în inovație și eficiență.</p>
                     </div>
                     <div className="flex mt-5">
                         <a
@@ -30,6 +32,11 @@ export default function Footer()
                             <FontAwesomeIcon icon={faWhatsappSquare} />
                         </a>
                     </div>
+                    <img
+                        src="/certification.png"
+                        alt="Certificat de Ministerul Muncii și Protecției Sociale"
+                        className="w-52 mt-5"
+                    />
                 </section>
                 <section className="basis-1/4 space-y-2">
                     <h2 className="text-xl font-bold text-primary">Detalii contact</h2>
@@ -56,10 +63,10 @@ export default function Footer()
 
             <hr />
 
-            <div className="p-4 text-center flex flex-wrap justify-center items-center">
-                <span>&copy; Copyright 2023 Scaffolding Professional Team.&nbsp;</span>
+            <section className="p-4 text-center flex flex-wrap justify-center items-center">
+                <span>&copy; Copyright {year} Scaffolding Professional Team.&nbsp;</span>
                 <span>All Rights Reserved.</span>
-            </div>
+            </section>
         </footer>
     );
 }

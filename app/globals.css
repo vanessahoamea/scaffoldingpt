@@ -2,10 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-section p {
-    @apply text-justify;
-}
-
 header .web-menu-link {
     @apply px-2 relative;
     @apply transition-colors duration-200;
