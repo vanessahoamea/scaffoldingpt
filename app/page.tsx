@@ -1,7 +1,5 @@
-"use client";
-
-import { motion } from "framer-motion";
 import PrimaryButton from "./components/PrimaryButton";
+import SlidingSection from "./components/SlidingSection";
 
 export default function Home()
 {
@@ -20,33 +18,15 @@ export default function Home()
                 </div>
             </div>
             
-            <motion.section
-                className="px-16 pt-20"
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                variants={{
-                    hidden: { opacity: 0, x: -250 },
-                    visible: { opacity: 1, x: 0, transition: { duration: 1 } }
-                }}
-            >
+            <SlidingSection startPosition={-250} isLast={false}>
                 <h2 className="text-primary text-3xl font-bold">Despre noi</h2>
-                <p className="my-2">Suntem o echipă dedicată, cu o experiență vastă de peste 30 de ani în industria schelelor. Originea noastră se regăsește în Grecia, unde am acumulat o expertiză solidă, lucrând pe proiecte complexe, inclusiv construcții impresionante și proiecte pe vapoare. Ne-am întors în România dornici să împărtășim cunoștințele noastre internaționale și să le combinăm cu o abordare inovatoare.</p>
-            </motion.section>
+                <p className="mt-2">Suntem o echipă dedicată, cu o experiență vastă de peste 30 de ani în industria schelelor. Originea noastră se regăsește în Grecia, unde am acumulat o expertiză solidă, lucrând pe proiecte complexe, inclusiv construcții impresionante și proiecte pe vapoare. Ne-am întors în România dornici să împărtășim cunoștințele noastre internaționale și să le combinăm cu o abordare inovatoare.</p>
+            </SlidingSection>
 
-            <motion.section
-                className="px-16 pt-20 pb-20"
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                variants={{
-                    hidden: { opacity: 0, x: 250 },
-                    visible: { opacity: 1, x: 0, transition: { duration: 1 } }
-                }}
-            >
+            <SlidingSection startPosition={250} isLast={true}>
                 <h2 className="text-primary text-3xl font-bold">Cu ce ne ocupăm</h2>
-                <p className="my-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga impedit, officiis ipsa aliquid possimus inventore voluptate laborum maxime labore in, soluta illo hic, quis quidem harum fugit. Possimus ex ipsam, placeat necessitatibus error et quas, consequatur beatae ratione voluptatum nostrum, amet delectus. Laboriosam voluptas animi quisquam neque aut quae totam voluptatem nesciunt deleniti temporibus beatae doloremque aspernatur dolor quibusdam natus eveniet recusandae libero, dignissimos pariatur non magnam? Veniam dolore repellat nam nulla assumenda nisi nostrum esse, nemo, aliquam odit aperiam recusandae dolorem dolores itaque impedit quaerat autem aliquid dolorum? Vel, iure consectetur blanditiis natus voluptate maiores neque incidunt totam repellendus.</p>
-            </motion.section>
+                <p className="mt-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga impedit, officiis ipsa aliquid possimus inventore voluptate laborum maxime labore in, soluta illo hic, quis quidem harum fugit. Possimus ex ipsam, placeat necessitatibus error et quas, consequatur beatae ratione voluptatum nostrum, amet delectus. Laboriosam voluptas animi quisquam neque aut quae totam voluptatem nesciunt deleniti temporibus beatae doloremque aspernatur dolor quibusdam natus eveniet recusandae libero, dignissimos pariatur non magnam? Veniam dolore repellat nam nulla assumenda nisi nostrum esse, nemo, aliquam odit aperiam recusandae dolorem dolores itaque impedit quaerat autem aliquid dolorum? Vel, iure consectetur blanditiis natus voluptate maiores neque incidunt totam repellendus.</p>
+            </SlidingSection>
         </main>
     );
 }

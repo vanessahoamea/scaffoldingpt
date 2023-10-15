@@ -54,7 +54,7 @@ export default function ApplyForm()
     }
 
     return (
-        <form className="my-2 flex flex-col items-center">
+        <form className="mt-5 flex flex-col items-center">
             <div className="flex flex-col md:flex-row md:gap-2 w-full" role="group">
                 <input
                     className="w-full border border-gray-500 rounded-sm mb-3 p-2"

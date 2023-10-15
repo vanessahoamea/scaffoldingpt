@@ -34,7 +34,7 @@ export default function Footer()
                     </div>
                     <img
                         src="/certification.png"
-                        alt="Certificat de Ministerul Muncii și Protecției Sociale"
+                        alt="Ministry of Labor and Social Protection logo"
                         className="w-52 mt-5"
                     />
                 </section>

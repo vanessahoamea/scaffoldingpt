@@ -61,7 +61,7 @@ export default function ContactForm()
     }
     
     return (
-        <form className="my-2 flex flex-col items-center basis-1/2">
+        <form className="mt-2 flex flex-col items-center basis-1/2">
             <input
                 className="w-full border border-gray-500 rounded-sm mb-3 p-2"
                 type="text"
