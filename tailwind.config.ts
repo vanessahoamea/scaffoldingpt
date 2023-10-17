@@ -13,6 +13,9 @@ const config: Config = {
       },
       brightness: {
         45: ".45"
+      },
+      borderWidth: {
+        "hr": "1.5px"
       }
     },
   },

@@ -1,5 +1,6 @@
 import path from "path";
 import fsPromises from "fs/promises";
+import Link from "next/link";
 import AccordionItem from "../components/AccordionItem";
 
 interface ServiceData
@@ -22,7 +23,7 @@ export default async function Services()
                     className="w-full h-40 object-cover brightness-45 select-none pointer-events-none"
                 />
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                    <h1 className="py-32 text-center text-3xl font-bold">Servicii</h1>
+                    <h1 className="py-32 text-3xl font-bold">Servicii</h1>
                 </div>
             </div>
 
@@ -36,7 +37,7 @@ export default async function Services()
                     ))
                 }
                 </div>
-                <p className="mt-2">Ne propunem să oferim cele mai competitive prețuri din industrie și suntem bucuroși să discutăm cu dvs. pentru a vă oferi o ofertă personalizată care să se potrivească nevoilor dvs. Pentru informații detaliate despre tarife sau pentru a primi o ofertă personalizată, vă rugăm să ne contactați. Suntem aici pentru a vă ajuta cu fiecare etapă a proiectului dvs. de construcție.</p>
+                <p className="mt-2">Ne propunem să oferim cele mai competitive prețuri din industrie și suntem bucuroși să discutăm cu dvs. pentru a vă oferi o ofertă personalizată care să se potrivească nevoilor dvs. Pentru informații detaliate despre tarife sau pentru a primi o ofertă personalizată, vă rugăm <Link href="/contact" className="text-primary font-semibold">să ne contactați</Link>. Suntem aici pentru a vă ajuta cu fiecare etapă a proiectului dvs. de construcție.</p>
             </section>
 
             <section className="px-16 pt-20 pb-20">

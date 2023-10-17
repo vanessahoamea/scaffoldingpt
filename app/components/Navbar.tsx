@@ -9,7 +9,7 @@ export default function Navbar()
         <header className="bg-white mx-auto">
             <nav className="px-8 py-3 flex justify-between items-center">
                 <Link href="/">
-                    <img src="./logo.png" alt="Site logo" className="w-20" />
+                    <img src="/logo.png" alt="Site logo" className="w-20" />
                 </Link>
 
                 <div className="hidden md:flex items-center gap-5">

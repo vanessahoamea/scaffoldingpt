@@ -13,7 +13,7 @@ export default function Contact()
                     className="w-full h-40 object-cover brightness-45 select-none pointer-events-none"
                 />
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                    <h1 className="py-32 text-center text-3xl font-bold">Contact</h1>
+                    <h1 className="py-32 text-3xl font-bold">Contact</h1>
                 </div>
             </div>
 

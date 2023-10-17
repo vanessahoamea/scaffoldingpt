@@ -14,29 +14,31 @@ export default function Footer()
                         <img src="/logo.png" alt="Company logo" className="w-20" />
                         <p>Scaffolding Professional Team se angajează să ofere servicii de înaltă calitate în domeniul schelelor. Misiunea noastră este să fim lideri în inovație și eficiență.</p>
                     </div>
-                    <div className="flex mt-5">
-                        <a
-                            title="Facebook"
-                            className="social-media-link"
-                            href="https://www.facebook.com/scaffolding.professionalteam"
-                            target="_blank"
-                        >
-                            <FontAwesomeIcon icon={faFacebookSquare} />
-                        </a>
-                        <a
-                            title="WhatsApp"
-                            className="social-media-link"
-                            href="https://wa.me/40766453808"
-                            target="_blank"
-                        >
-                            <FontAwesomeIcon icon={faWhatsappSquare} />
-                        </a>
+                    <div className="flex justify-between items-center mt-5">
+                        <div className="flex">
+                            <a
+                                title="Facebook"
+                                className="social-media-link"
+                                href="https://www.facebook.com/scaffolding.professionalteam"
+                                target="_blank"
+                            >
+                                <FontAwesomeIcon icon={faFacebookSquare} />
+                            </a>
+                            <a
+                                title="WhatsApp"
+                                className="social-media-link"
+                                href="https://wa.me/40766453808"
+                                target="_blank"
+                            >
+                                <FontAwesomeIcon icon={faWhatsappSquare} />
+                            </a>
+                        </div>
+                        <img
+                            src="/certification.png"
+                            alt="Ministry of Labor and Social Protection logo"
+                            className="w-52"
+                        />
                     </div>
-                    <img
-                        src="/certification.png"
-                        alt="Ministry of Labor and Social Protection logo"
-                        className="w-52 mt-5"
-                    />
                 </section>
                 <section className="basis-1/4 space-y-2">
                     <h2 className="text-xl font-bold text-primary">Detalii contact</h2>
