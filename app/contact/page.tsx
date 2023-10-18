@@ -9,7 +9,7 @@ export default function Contact()
             <div className="h-40 relative overflow-hidden text-white text-center">
                 <img
                     src="/banner.jpg"
-                    alt="Site banner"
+                    alt=""
                     className="w-full h-40 object-cover brightness-45 select-none pointer-events-none"
                 />
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
@@ -17,7 +17,7 @@ export default function Contact()
                 </div>
             </div>
 
-            <section className="px-16 pt-20">
+            <section className="px-8 md:px-16 pt-20">
                 <h2 className="text-primary text-3xl font-bold">Luați legătura cu noi</h2>
                 <div className="my-2 flex flex-col gap-1 md:flex-row">
                     <ContactDetails icon={faLocationDot} text="Sediu">
@@ -38,7 +38,7 @@ export default function Contact()
                 </div>
             </section>
 
-            <section className="px-16 pt-20 pb-20 flex flex-col gap-5 md:flex-row md:gap-12">
+            <section className="px-8 md:px-16 pt-20 pb-20 flex flex-col gap-5 md:flex-row md:gap-12">
                 <div className="basis-1/2">
                     <h2 className="text-primary text-3xl font-bold">Cereți o ofertă personalizată</h2>
                     <p className="mt-2">Suntem aici pentru a vă ajuta să vă concretizați proiectele de construcție și să vă oferim soluții la înălțime. Indicați înălțimea și localizarea lucrării dorite, iar echipa noastră de specialiști vă va contacta în cel mai scurt timp posibil pentru a discuta detaliile și pentru a vă oferi o ofertă adaptată nevoilor dvs.</p>

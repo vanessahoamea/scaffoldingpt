@@ -7,7 +7,7 @@ interface ContactDetailsProps
     icon: IconDefinition,
     text: string,
     children: JSX.Element
-}
+};
 export default function ContactDetails(props: ContactDetailsProps)
 {
     return (

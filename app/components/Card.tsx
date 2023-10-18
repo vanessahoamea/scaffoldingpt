@@ -3,7 +3,7 @@ interface CardProps
     image: string,
     title: string,
     content: string
-}
+};
 export default function Card(props: CardProps)
 {
     return (

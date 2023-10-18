@@ -5,7 +5,7 @@ export default function PrivacyPolicy()
             <div className="h-40 relative overflow-hidden text-white text-center">
                 <img 
                     src="/banner.jpg"
-                    alt="Site banner"
+                    alt=""
                     className="w-full h-40 object-cover brightness-45 select-none pointer-events-none"
                 />
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">

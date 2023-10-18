@@ -14,7 +14,7 @@ export default function Footer()
                         <img src="/logo.png" alt="Company logo" className="w-20" />
                         <p>Scaffolding Professional Team se angajează să ofere servicii de înaltă calitate în domeniul schelelor. Misiunea noastră este să fim lideri în inovație și eficiență.</p>
                     </div>
-                    <div className="flex justify-between items-center mt-5">
+                    <div className="mt-5 flex justify-between items-center gap-1 flex-wrap">
                         <div className="flex">
                             <a
                                 title="Facebook"
@@ -36,7 +36,7 @@ export default function Footer()
                         <img
                             src="/certification.png"
                             alt="Ministry of Labor and Social Protection logo"
-                            className="w-52"
+                            className="w-48"
                         />
                     </div>
                 </section>

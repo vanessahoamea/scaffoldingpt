@@ -8,7 +8,7 @@ export default function Home()
             <div className="h-screen relative overflow-hidden text-white text-center">
                 <img
                     src="/banner.jpg"
-                    alt="Site banner"
+                    alt=""
                     className="w-full h-screen object-cover brightness-45 select-none pointer-events-none"
                 />
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">

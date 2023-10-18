@@ -1,5 +1,4 @@
-import path from "path";
-import fsPromises from "fs/promises";
+import { promises as fs } from "fs";
 import Card from "../components/Card"
 import Tabs from "../components/Tabs";
 import PrimaryButton from "../components/PrimaryButton";
@@ -19,7 +18,7 @@ export default async function About()
             <div className="h-40 relative overflow-hidden text-white text-center">
                 <img
                     src="/banner.jpg"
-                    alt="Site banner"
+                    alt=""
                     className="w-full h-40 object-cover brightness-45 select-none pointer-events-none"
                 />
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
@@ -27,16 +26,16 @@ export default async function About()
                 </div>
             </div>
             
-            <div className="px-16 pt-20 pb-20">
+            <section className="px-8 md:px-16 pt-20 pb-20">
                 <h2 className="text-primary text-3xl text-center font-bold">Scaffolding Professional Team</h2>
                 <div className="mt-2">
                     <Tabs data={data} />
                 </div>
-            </div>
+            </section>
 
             <hr className="border-hr border-primary w-1/3 mx-auto" />
 
-            <section className="px-16 pt-20 pb-20">
+            <section className="px-8 md:px-16 pt-20 pb-20">
                 <h2 className="text-primary text-3xl text-center font-bold">Valorile noastre</h2>
                 <div className="mt-2 flex flex-col gap-10 md:flex-row">
                     <Card
@@ -59,21 +58,21 @@ export default async function About()
 
             <hr className="border-hr border-primary w-1/3 mx-auto" />
 
-            <section className="px-16 pt-20 pb-20">
+            <section className="px-8 md:px-16 pt-20 pb-20">
                 <h2 className="text-primary text-3xl text-center font-bold">Recunoașteri</h2>
                 <p className="mt-2 text-center">Suntem mândri de munca noastră și suntem bucuroși că am obținut recunoaștere pentru excelența noastră în industrie. Colaborarea noastră cu clienții precum <b>IRI CRIS SRL</b>, <b>ART EST CONSTRUCT SRL</b>, și implicarea în proiecte notabile precum <b>SUN Residence</b> din Iași și Comat Iași sunt doar câteva exemple ale eforturilor noastre recunoscute în domeniu.</p>
                 <p className="mt-2 text-center">La Scaffolding Professional Team, ne angajăm să oferim cele mai bune servicii în industria schelelor și suntem entuziasmați să continuăm această călătorie împreună cu clienții noștri și partenerii de afaceri.</p>
             </section>
 
-            <div className="h-64 relative overflow-hidden text-white text-center">
+            <div className="h-72 sm:h-64 relative overflow-hidden text-white text-center">
                 <img
                     src="/cta.jpg"
                     alt=""
-                    className="w-full h-64 object-cover brightness-45 select-none pointer-events-none"
+                    className="w-full h-72 sm:h-64 object-cover brightness-45 select-none pointer-events-none"
                 />
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
                     <h1 className="w-screen px-8 text-xl md:text-3xl font-bold">Oferim cele mai bune servicii din industrie.</h1>
-                    <p className="mt-2 px-16">Colaborați cu noi pentru a primi cel mai înalt nivel de suport și calitate. Succesul dvs. este prioritatea noastră.</p>
+                    <p className="mt-2 px-8 sm:px-16">Colaborați cu noi pentru a primi cel mai înalt nivel de suport și calitate. Succesul dvs. este prioritatea noastră.</p>
                     <div className="mt-5">
                         <PrimaryButton text="Cere o ofertă" path="/contact" />
                     </div>
@@ -85,9 +84,8 @@ export default async function About()
 
 async function getData(): Promise<{ data: AboutData[] }>
 {
-    const filePath = path.join(process.cwd(), "data/about.json");
-    const jsonData = await fsPromises.readFile(filePath);
-    const objectData = JSON.parse(jsonData.toString());
+    const file = await fs.readFile(process.cwd() + "/data/about.json", "utf8");
+    const object = JSON.parse(file);
 
-    return objectData;
+    return object;
 }
