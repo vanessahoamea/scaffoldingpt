@@ -13,7 +13,7 @@ export default function PrimaryButton(props: PrimaryButtonProps)
     
     return (
         <button 
-            className="mt-5 bg-transparent hover:bg-primary py-2 px-4 border-2 border-white hover:border-transparent rounded"
+            className="bg-transparent hover:bg-primary py-2 px-4 border-2 border-white hover:border-transparent rounded"
             onClick={() => router.push(props.path)}
         >
             {props.text}

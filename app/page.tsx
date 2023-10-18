@@ -14,7 +14,9 @@ export default function Home()
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
                     <h1 className="text-4xl font-bold">Scaffolding Professional Team</h1>
                     <p className="mt-5">Noi nu am inventat schela, dar suntem maeștrii în folosirea ei.</p>
-                    <PrimaryButton text="Contactează-ne" path="/contact" />
+                    <div className="mt-5">
+                        <PrimaryButton text="Contactează-ne" path="/contact" />
+                    </div>
                 </div>
             </div>
             
