@@ -27,7 +27,7 @@ export default function AccordionItem(props: AccordionItemProps)
                 onClick={() => setIsOpen((isOpen) => !isOpen)}
             >
                 <h3>{props.title}</h3>
-                <FontAwesomeIcon icon={isOpen ? faCircleMinus : faCirclePlus} aria-hidden={true} />
+                <FontAwesomeIcon icon={isOpen ? faCircleMinus : faCirclePlus} />
             </button>
             <AnimatePresence>
             {
