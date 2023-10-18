@@ -22,7 +22,7 @@ export default function Footer()
                                 href="https://www.facebook.com/scaffolding.professionalteam"
                                 target="_blank"
                             >
-                                <FontAwesomeIcon icon={faFacebookSquare} />
+                                <FontAwesomeIcon icon={faFacebookSquare} aria-hidden={true} />
                             </a>
                             <a
                                 title="WhatsApp"
@@ -30,7 +30,7 @@ export default function Footer()
                                 href="https://wa.me/40766453808"
                                 target="_blank"
                             >
-                                <FontAwesomeIcon icon={faWhatsappSquare} />
+                                <FontAwesomeIcon icon={faWhatsappSquare} aria-hidden={true} />
                             </a>
                         </div>
                         <img

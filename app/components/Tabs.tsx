@@ -46,7 +46,7 @@ export default function Tabs(props: TabsProps)
                 props.data.map((tab) => (
                     <li
                         key={tab.id}
-                        className="w-full py-2 text-center border-b border-gray-200 cursor-pointer outline-none"
+                        className="w-full py-2 text-center border-b border-gray-200 cursor-pointer"
                         role="tab"
                         tabIndex={currentTab === tab.id ? 0 : -1}
                         aria-selected={currentTab === tab.id}
@@ -61,7 +61,7 @@ export default function Tabs(props: TabsProps)
                 props.data.map((tab) => (
                     <p
                         key={tab.id}
-                        className="hidden text-center outline-none"
+                        className="hidden text-center"
                         role="tabpanel"
                         tabIndex={0}
                         aria-selected={currentTab === tab.id}

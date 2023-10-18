@@ -12,8 +12,8 @@ export default function HamburgerMenu()
     }
     
     return (
-        <button className="text-xl" onClick={toggleMenu}>
-            <FontAwesomeIcon icon={faBars} />
+        <button className="text-xl" onClick={toggleMenu} aria-label="menu">
+            <FontAwesomeIcon icon={faBars} aria-hidden={true} />
         </button>
     );
 }
