@@ -1,13 +1,8 @@
 "use client";
 
 import { KeyboardEvent, useEffect, useState } from "react";
+import type { AboutData } from "../types";
 
-interface AboutData
-{
-    id: number,
-    title: string,
-    content: string
-};
 interface TabsProps
 {
     data: AboutData[]

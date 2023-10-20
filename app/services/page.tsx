@@ -2,20 +2,8 @@ import { promises as fs } from "fs";
 import Link from "next/link";
 import AccordionItem from "../components/AccordionItem";
 import Gallery from "../components/Gallery";
+import type { ImageData, ServiceData } from "../types";
 
-interface ServiceData
-{
-    id: number,
-    title: string,
-    content: string,
-    prices: string
-};
-interface ImageData
-{
-    id: number,
-    url: string,
-    description: string
-};
 export default async function Services()
 {
     const services = await getServiceData();

@@ -2,13 +2,8 @@ import { promises as fs } from "fs";
 import Card from "../components/Card"
 import Tabs from "../components/Tabs";
 import PrimaryButton from "../components/PrimaryButton";
+import type { AboutData } from "../types";
 
-interface AboutData
-{
-    id: number,
-    title: string,
-    content: string
-};
 export default async function About()
 {
     const { data } = await getData();
