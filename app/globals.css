@@ -57,6 +57,9 @@ footer .social-media-link {
 .gallery-container:hover img {
     @apply brightness-45;
 }
+div[role="dialog"] button {
+    @apply bg-primary bg-opacity-40 hover:bg-opacity-80 text-3xl text-white rounded z-10;
+}
 
 .hiring ul li {
     @apply pl-4;

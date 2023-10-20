@@ -1,6 +1,6 @@
 "use client";
 
-import { KeyboardEvent, useState } from "react";
+import { KeyboardEvent, useEffect, useState } from "react";
 import Modal from "./Modal";
 
 interface ImageData
@@ -16,20 +16,49 @@ interface GalleryProps
 export default function Gallery(props: GalleryProps)
 {
     const [selectedImage, setSelectedImage] = useState<ImageData | null>(null);
+    const [lastClicked, setLastClicked] = useState<HTMLElement | null>(null);
 
-    function changeImage(e: KeyboardEvent): void
+    useEffect(() => {
+        if(lastClicked === null)
+        {
+            const div = document.querySelector("div[aria-selected='true']");
+            setLastClicked(div as HTMLElement);
+        }
+        if(selectedImage === null)
+        {
+            lastClicked?.focus();
+            setLastClicked(null);
+        }
+    }, [selectedImage]);
+
+    function changeImageClick(direction: number): void
+    {
+        const newIndex = selectedImage!.id - 1 + direction;
+
+        if(newIndex >= 0 && newIndex < props.data.length)
+            setSelectedImage(props.data[newIndex]);
+        else if(newIndex < 0)
+            setSelectedImage(props.data[props.data.length - 1]);
+        else
+            setSelectedImage(props.data[0]);
+    }
+
+    function changeImageKeydown(e: KeyboardEvent): void
     {
         let newIndex = 0;
 
         switch(e.key)
         {
             case "ArrowLeft":
-                newIndex = selectedImage!.id - 1 >= 0 ? selectedImage!.id - 1 : props.data.length - 1;
+                newIndex = selectedImage!.id - 2 >= 0 ? selectedImage!.id - 2 : props.data.length - 1;
                 setSelectedImage(props.data[newIndex]);
                 break;
             case "ArrowRight":
-                newIndex = selectedImage!.id + 1 < props.data.length ? selectedImage!.id + 1 : 0;
+                newIndex = selectedImage!.id < props.data.length ? selectedImage!.id : 0;
                 setSelectedImage(props.data[newIndex]);
+                break;
+            case "Escape":
+                setSelectedImage(null);
                 break;
             default:
                 break;
@@ -37,7 +66,7 @@ export default function Gallery(props: GalleryProps)
     }
 
     return (
-        <div className="flex flex-wrap gap-1">
+        <div className="flex justify-center flex-wrap gap-1">
         {
             props.data.map((image: ImageData) => (
                 <div
@@ -56,14 +85,12 @@ export default function Gallery(props: GalleryProps)
                 </div>
             ))
         }
-        {
-            selectedImage &&
-            <Modal
-                image={selectedImage}
-                changeImage={changeImage}
-                setSelectedImage={setSelectedImage}
-            />
-        }
+        <Modal
+            image={selectedImage}
+            changeImageClick={changeImageClick}
+            changeImageKeydown={changeImageKeydown}
+            setSelectedImage={setSelectedImage}
+        />
         </div>
     );
 }
