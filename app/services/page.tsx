@@ -1,6 +1,7 @@
 import { promises as fs } from "fs";
 import Link from "next/link";
 import AccordionItem from "../components/AccordionItem";
+import Gallery from "../components/Gallery";
 
 interface ServiceData
 {
@@ -9,9 +10,16 @@ interface ServiceData
     content: string,
     prices: string
 };
+interface ImageData
+{
+    id: number,
+    url: string,
+    description: string
+};
 export default async function Services()
 {
-    const { data } = await getData();
+    const services = await getServiceData();
+    const images = await getImageData();
 
     return (
         <main>
@@ -31,7 +39,7 @@ export default async function Services()
                 <p className="mt-2">La Scaffolding Professional Team, suntem dedicați să vă oferim o gamă completă de servicii și produse în domeniul schelelor pentru a satisface nevoile diferite ale clienților noștri. Indiferent de nevoile dvs., suntem aici pentru a vă ajuta să vă atingeți obiectivele de construcție într-un mod sigur și eficient. Prețurile noastre variază în funcție de tipul de serviciu sau produs și de durata închirierii. Iată câteva dintre serviciile noastre comune și prețurile lor orientative:</p>
                 <div className="my-4">
                 {
-                    data.map((service: ServiceData) => (
+                    services.data.map((service: ServiceData) => (
                         <AccordionItem key={service.id} {...service} />
                     ))
                 }
@@ -42,14 +50,25 @@ export default async function Services()
             <section className="px-8 md:px-16 pt-20 pb-20">
                 <h2 className="text-primary text-3xl font-bold">Portofoliul nostru</h2>
                 <p className="mt-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem facere tempora doloremque minima consectetur quo nisi veniam pariatur, facilis atque iusto, nam, incidunt totam iure earum dicta blanditiis? Aperiam a libero tempore eaque assumenda molestiae omnis earum. Dolore, consectetur earum.</p>
+                <div className="mt-2">
+                    <Gallery data={images.data} />
+                </div>
             </section>
         </main>
     );
 }
 
-async function getData(): Promise<{ data: ServiceData[] }>
+async function getServiceData(): Promise<{ data: ServiceData[] }>
 {
     const file = await fs.readFile(process.cwd() + "/data/services.json", "utf8");
+    const object = JSON.parse(file);
+
+    return object;
+}
+
+async function getImageData(): Promise<{ data: ImageData[] }>
+{
+    const file = await fs.readFile(process.cwd() + "/data/portfolio.json", "utf8");
     const object = JSON.parse(file);
 
     return object;

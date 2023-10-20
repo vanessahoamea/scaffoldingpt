@@ -16,6 +16,9 @@ const config: Config = {
       },
       borderWidth: {
         "hr": "1.5px"
+      },
+      screens: {
+        "xs": "320px"
       }
     },
   },

@@ -40,6 +40,24 @@ footer .social-media-link {
     @apply block;
 }
 
+.gallery-container {
+    @apply w-full xs:w-[calc(50%-4px)] md:w-[calc(100%/3-4px)] cursor-pointer relative;
+}
+.gallery-container::after {
+    content: "";
+    mask: url("/magnifying-glass-solid.svg") no-repeat center;
+    -webkit-mask: url("/magnifying-glass-solid.svg") no-repeat center;
+    @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2;
+    @apply bg-white w-10 h-10 md:w-14 md:h-14 opacity-0;
+    @apply transition-opacity duration-200 ease-in;
+}
+.gallery-container:hover::after {
+    @apply opacity-100;
+}
+.gallery-container:hover img {
+    @apply brightness-45;
+}
+
 .hiring ul li {
     @apply pl-4;
 }

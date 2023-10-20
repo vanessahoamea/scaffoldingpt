@@ -12,7 +12,7 @@ export default function HamburgerMenu()
     }
     
     return (
-        <button className="text-xl" onClick={toggleMenu} aria-label="menu">
+        <button className="text-xl" aria-label="Deschide meniul" onClick={toggleMenu}>
             <FontAwesomeIcon icon={faBars} />
         </button>
     );

@@ -21,7 +21,7 @@ export default function AccordionItem(props: AccordionItemProps)
         <div className="mb-3 last:mb-0">
             <button
                 id={`accordion-button-${itemId}`}
-                className="w-full p-4 bg-gray-200 text-xl text-primary font-semibold rounded-lg shadow-md flex justify-between items-center"
+                className="w-full p-4 bg-gray-200 text-xl text-primary text-left font-semibold rounded-lg shadow-md flex justify-between items-center gap-2"
                 aria-expanded={isOpen}
                 aria-controls={`accordion-content-${itemId}`}
                 onClick={() => setIsOpen((isOpen) => !isOpen)}

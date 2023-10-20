@@ -17,10 +17,11 @@ export default function Tabs(props: TabsProps)
     const [currentTab, setCurrentTab] = useState(1);
 
     useEffect(() => {
-        document.querySelector<HTMLLIElement>("li[aria-selected='true']")!.focus();
+        const tab = document.querySelector<HTMLLIElement>("li[aria-selected='true']");
+        tab!.focus();
     }, [currentTab]);
 
-    function switchTabs(e: KeyboardEvent)
+    function switchTabs(e: KeyboardEvent): void
     {
         switch(e.key)
         {
@@ -43,7 +44,7 @@ export default function Tabs(props: TabsProps)
                 onKeyDown={switchTabs}
             >
             {
-                props.data.map((tab) => (
+                props.data.map((tab: AboutData) => (
                     <li
                         key={tab.id}
                         className="w-full py-2 text-center border-b border-gray-200 cursor-pointer"
@@ -58,7 +59,7 @@ export default function Tabs(props: TabsProps)
             }
             </ul>
             {
-                props.data.map((tab) => (
+                props.data.map((tab: AboutData) => (
                     <p
                         key={tab.id}
                         className="hidden text-center"
