@@ -5,6 +5,26 @@ interface AboutData
     content: string
 };
 
+interface ApplyInputs
+{
+    name: string,
+    surname: string,
+    phone: string,
+    email: string,
+    comments: string
+}
+
+interface ContactInputs
+{
+    name: string,
+    phone: string,
+    email: string,
+    height: string,
+    place: string,
+    subject: string,
+    message: string
+};
+
 interface ImageData
 {
     id: number,
@@ -20,4 +40,4 @@ interface ServiceData
     prices: string
 };
 
-export type { AboutData, ImageData, ServiceData };
+export type { AboutData, ApplyInputs, ContactInputs, ImageData, ServiceData };
