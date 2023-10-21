@@ -38,7 +38,7 @@ export default async function Services()
             <section className="px-8 md:px-16 pt-20 pb-20">
                 <h2 className="text-primary text-3xl font-bold">Portofoliul nostru</h2>
                 <p className="mt-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem facere tempora doloremque minima consectetur quo nisi veniam pariatur, facilis atque iusto, nam, incidunt totam iure earum dicta blanditiis? Aperiam a libero tempore eaque assumenda molestiae omnis earum. Dolore, consectetur earum.</p>
-                <div className="mt-2">
+                <div className="mt-2 portfolio">
                     <Gallery data={images.data} />
                 </div>
             </section>

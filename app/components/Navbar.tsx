@@ -1,7 +1,7 @@
 import Link from "next/link";
-import HamburgerMenu from "./HamburgerMenu";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebookSquare, faWhatsappSquare } from "@fortawesome/free-brands-svg-icons";
+import HamburgerMenu from "./HamburgerMenu";
 
 export default function Navbar()
 {

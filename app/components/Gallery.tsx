@@ -14,17 +14,31 @@ export default function Gallery(props: GalleryProps)
     const [lastClicked, setLastClicked] = useState<HTMLElement | null>(null);
 
     useEffect(() => {
-        if(lastClicked === null)
+        // hide background content and remember the last focused element when opening the modal
+        if(selectedImage !== null && lastClicked === null)
         {
-            const div = document.querySelector("div[aria-selected='true']");
-            setLastClicked(div as HTMLElement);
+            const div = document.querySelector<HTMLDivElement>("div[aria-selected='true']");
+            setLastClicked(div);
+            toggleBackground("hide");
         }
-        if(selectedImage === null)
+        // make the main content accessible again after closing the modal
+        else if(selectedImage === null)
         {
             lastClicked?.focus();
             setLastClicked(null);
+            toggleBackground("show")
         }
     }, [selectedImage]);
+
+    function toggleBackground(action: "hide" | "show"): void
+    {
+        const elements = document.querySelectorAll("header, footer, main > div, main > section > *:not(.portfolio), .gallery-container");
+
+        if(action === "hide")
+            elements.forEach((element) => element.setAttribute("aria-hidden", "true"));
+        else
+            elements.forEach((element) => element.removeAttribute("aria-hidden"));
+    }
 
     function changeImageClick(direction: number): void
     {
