@@ -1,134 +1,118 @@
 "use client";
 
-import { ChangeEvent, useState } from "react";
+import { useEffect, useId } from "react";
+import { useForm } from "react-hook-form";
+import type { ContactInputs } from "../types";
 
 export default function ContactForm()
 {
-    const [values, setValues] = useState({
-        name: "",
-        phone: "",
-        email: "",
-        height: "",
-        place: "",
-        subject: "",
-        message: ""
-    });
+    const formId = useId();
+    const { register, handleSubmit, formState, reset } = useForm<ContactInputs>();
+    const { errors, isSubmitting, isSubmitSuccessful } = formState;
 
-    function handleForm(e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>): void
+    useEffect(() => {
+        reset();
+    }, [isSubmitSuccessful]);
+
+    function sendMessage(data: ContactInputs): void
     {
-        setValues((values) => {
-            return { ...values, [e.target.name]: e.target.value };
-        });
-    }
-
-    async function sendMessage(): Promise<void>
-    {
-        // validate form fields
-        if(
-            !values.name.trim() || !values.subject.trim() || !values.message.trim() || 
-            !values.height.trim() || !values.place.trim()
-        )
-        {
-            alert("Vă rugăm să specificați numele dvs., înălțimea și localizarea lucrării dorite, subiectul mesajului, precum și mesajul propriu-zis.");
-            return;
-        }
-        if(!values.phone.trim() && !values.email.trim())
-        {
-            alert("Vă rugăm să furnizați cel puțin o metodă de contact (adresă de e-mail sau număr de telefon).");
-            return;
-        }
-
-        // send user's message
-        fetch("/api/email", { method: "POST", body: JSON.stringify(values) })
+        fetch("/api/email", { method: "POST", body: JSON.stringify(data) })
         .then((res) => {
             if(!res.ok)
-                throw new Error("Mesajul dvs. nu a putut fi trimis. Vă rugăm să încercați din nou mai târziu.");
+                throw new Error();
             return res.json();
         })
-        .then((_) => {
-            alert("Mesajul dvs. a fost trimis cu succes. :)");
-            setValues((_) => ({
-                name: "",
-                phone: "",
-                email: "",
-                height: "",
-                place: "",
-                subject: "",
-                message: ""
-            }));
-        })
-        .catch((err) => alert(err));
+        .then((_) => alert("Mesajul dvs. a fost trimis cu succes. :)"))
+        .catch((_) => alert("Mesajul dvs. nu a putut fi trimis. Vă rugăm să încercați din nou mai târziu."));
+    };
+
+    function alertError(): void
+    {
+        if(errors.name || errors.phone || errors.email)
+            alert("Vă rugăm să specificați numele dvs. și cel puțin o metodă de contact (adresă de e-mail sau număr de telefon).");
+        else if(errors.height || errors.place)
+            alert("Vă rugăm să specificați înălțimea și localizarea lucrării dorite.");
+        else
+            alert("Vă rugăm să specificați subiectul mesajului, precum și mesajul propriu-zis.");
     }
     
     return (
-        <form className="mt-2 flex flex-col items-center basis-1/2">
+        <form
+            className="mt-2 flex flex-col items-center basis-1/2"
+            onSubmit={handleSubmit(sendMessage, alertError)}
+        >
+            <label htmlFor={`name-${formId}`}>Nume</label>
             <input
-                className="w-full border border-gray-500 rounded-sm mb-3 p-2"
                 type="text"
-                name="name"
                 placeholder="Nume"
-                value={values.name}
-                onChange={handleForm}
+                id={`name-${formId}`}
+                {...register("name", { required: true, pattern: /^(?!\s*$).+/ })}
+                aria-invalid={!!errors.name}
             />
+
             <div className="flex flex-col md:flex-row md:gap-2 w-full" role="group">
+                <label htmlFor={`phone-${formId}`}>Număr de telefon</label>
                 <input
-                    className="w-full border border-gray-500 rounded-sm mb-3 p-2"
                     type="tel"
-                    name="phone"
                     placeholder="Număr de telefon"
-                    value={values.phone}
-                    onChange={handleForm}
+                    id={`phone-${formId}`}
+                    {...register("phone", {
+                        validate: (value, formValues) => /^(?!\s*$).+/.test(value) || /^(?!\s*$).+/.test(formValues.email)
+                    })}
+                    aria-invalid={!!errors.phone && !!errors.email}
                 />
+
+                <label htmlFor={`email-${formId}`}>Adresă de e-mail</label>
                 <input
-                    className="w-full border border-gray-500 rounded-sm mb-3 p-2"
-                    type="text"
-                    name="email"
+                    type="email"
                     placeholder="Adresă de e-mail"
-                    value={values.email}
-                    onChange={handleForm}
+                    id={`email-${formId}`}
+                    {...register("email", {
+                        validate: (value, formValues) => /^(?!\s*$).+/.test(value) || /^(?!\s*$).+/.test(formValues.phone) 
+                    })}
+                    aria-invalid={!!errors.email && !!errors.phone}
                 />
             </div>
+
             <div className="flex flex-col md:flex-row md:gap-2 w-full" role="group">
+                <label htmlFor={`height-${formId}`}>Înălțime lucrare</label>
                 <input
-                    className="w-full border border-gray-500 rounded-sm mb-3 p-2"
-                    type="tel"
-                    name="height"
-                    placeholder="Înălțime lucrare"
-                    value={values.height}
-                    onChange={handleForm}
-                />
-                <input
-                    className="w-full border border-gray-500 rounded-sm mb-3 p-2"
                     type="text"
-                    name="place"
+                    placeholder="Înălțime lucrare"
+                    id={`height-${formId}`}
+                    {...register("height", { required: true, pattern: /^(?!\s*$).+/ })}
+                    aria-invalid={!!errors.height}
+                />
+
+                <label htmlFor={`place-${formId}`}>Localizare lucrare</label>
+                <input
+                    type="text"
                     placeholder="Localizare lucrare"
-                    value={values.place}
-                    onChange={handleForm}
+                    id={`place-${formId}`}
+                    {...register("place", { required: true, pattern: /^(?!\s*$).+/ })}
+                    aria-invalid={!!errors.place}
                 />
             </div>
+
+            <label htmlFor={`subject-${formId}`}>Subiect</label>
             <input
-                className="w-full border border-gray-500 rounded-sm mb-3 p-2"
                 type="text"
-                name="subject"
                 placeholder="Subiect"
-                value={values.subject}
-                onChange={handleForm}
+                id={`subject-${formId}`}
+                {...register("subject", { required: true, pattern: /^(?!\s*$).+/ })}
+                aria-invalid={!!errors.subject}
             />
+
+            <label htmlFor={`message-${formId}`}>Mesaj</label>
             <textarea
-                className="w-full border border-gray-500 rounded-sm resize-none mb-3 p-2"
                 rows={5}
-                name="message"
                 placeholder="Mesaj"
-                value={values.message}
-                onChange={handleForm}
+                id={`message-${formId}`}
+                {...register("message", { required: true, pattern: /^(?!\s*$).+/ })}
+                aria-invalid={!!errors.message}
             />
-            <button 
-                type="button"
-                className="px-5 py-2 border-2 border-primary text-primary hover:bg-primary hover:text-white rounded"
-                onClick={sendMessage}
-            >
-                Trimite
-            </button>
+
+            <button disabled={isSubmitting}>Trimite</button>
         </form>
     );
 }

@@ -10,8 +10,8 @@ export async function POST(request: Request)
 
     if(
         !body.name.trim() || !body.subject.trim() || !body.message.trim() || 
-        (!body.phone.trim() && !body.email.trim()) || 
-        (!body.height.trim() && !body.place.trim())
+        !body.height.trim() || !body.place.trim() || 
+        (!body.phone.trim() && !body.email.trim())
     )
         throw new Error("Please fill in all the required fields.");
 

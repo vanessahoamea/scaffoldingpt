@@ -7,7 +7,7 @@ import { AnimatePresence, motion } from "framer-motion";
 
 interface AccordionItemProps
 {
-    id: number
+    id: number,
     title: string,
     content: string,
     prices: string

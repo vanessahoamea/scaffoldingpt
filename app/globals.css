@@ -68,3 +68,13 @@ div[role="dialog"] button {
     content: "\2022";
     @apply text-primary text-xl font-bold inline-block w-4 -ml-4;
 }
+
+form label {
+    @apply absolute -left-96;
+}
+form input, form textarea {
+    @apply w-full border border-gray-500 rounded-sm resize-none mb-3 p-2;
+}
+form button {
+    @apply px-5 py-2 border-2 border-primary text-primary hover:bg-primary hover:text-white rounded;
+}
