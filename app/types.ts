@@ -32,6 +32,15 @@ interface ImageData
     description: string
 };
 
+interface ReviewData
+{
+    id: number,
+    name: string,
+    job_title: string,
+    rating: number,
+    content: string
+}
+
 interface ServiceData
 {
     id: number,
@@ -40,4 +49,4 @@ interface ServiceData
     prices: string
 };
 
-export type { AboutData, ApplyInputs, ContactInputs, ImageData, ServiceData };
+export type { AboutData, ApplyInputs, ContactInputs, ImageData, ReviewData, ServiceData };

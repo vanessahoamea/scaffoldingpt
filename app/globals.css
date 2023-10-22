@@ -33,6 +33,13 @@ footer .social-media-link {
     @apply text-5xl text-white mx-1 cursor-pointer;
 }
 
+.swiper {
+    @apply max-w-6xl w-full p-4 pb-10 !important;
+}
+.swiper-pagination-bullet-active {
+    @apply bg-primary !important;
+}
+
 .tabs ul li[aria-selected="true"] {
     @apply text-primary border-b-2 border-primary font-semibold;
 }
