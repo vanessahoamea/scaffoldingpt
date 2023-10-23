@@ -6,18 +6,17 @@ import { motion } from "framer-motion";
 interface SlidingSectionProps
 {
     startPosition: number,
-    isLast: boolean,
+    className?: string,
     children: ReactNode
 };
 export default function SlidingSection(props: SlidingSectionProps)
 {
-    const classes = ["px-8", "sm:px-16", "pt-20"];
-    if(props.isLast)
-        classes.push("pb-20");
-
+    if(props.className === undefined)
+        props.className = "";
+    
     return (
         <motion.section
-            className={classes.join(" ")}
+            className={`px-8 sm:px-16 pt-20 ${props.className}`}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}

@@ -1,7 +1,7 @@
 "use client";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { A11y, Keyboard, Pagination } from "swiper/modules";
+import { A11y, Autoplay, Keyboard, Pagination } from "swiper/modules";
 import Review from "./Review";
 import type { ReviewData } from "../types";
 import "swiper/css";
@@ -17,11 +17,12 @@ export default function ReviewSwiper(props: ReviewSwiperProps)
 {
     return (
         <Swiper
-            modules={[A11y, Keyboard, Pagination]}
+            modules={[A11y, Autoplay, Keyboard, Pagination]}
             spaceBetween={25}
             slidesPerView={3}
             loop={true}
             a11y={{ prevSlideMessage: "Înapoi", nextSlideMessage: "Înainte" }}
+            autoplay={{ delay: 5000, disableOnInteraction: false }}
             keyboard={{ enabled: true }}
             pagination={{ clickable: true, dynamicBullets: true }}
             breakpoints={{

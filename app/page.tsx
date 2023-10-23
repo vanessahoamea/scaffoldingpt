@@ -25,17 +25,17 @@ export default async function Home()
                 </div>
             </div>
             
-            <SlidingSection startPosition={-250} isLast={false}>
+            <SlidingSection startPosition={-250}>
                 <h2 className="text-primary text-3xl font-bold">Despre noi</h2>
                 <p className="mt-2">Suntem o echipă dedicată, cu o experiență vastă de peste 30 de ani în industria schelelor. Originea noastră se regăsește în Grecia, unde am acumulat o expertiză solidă, lucrând pe proiecte complexe, inclusiv construcții impresionante și proiecte pe vapoare. Ne-am întors în România dornici să împărtășim cunoștințele noastre internaționale și să le combinăm cu o abordare inovatoare.</p>
             </SlidingSection>
 
-            <SlidingSection startPosition={250} isLast={false}>
+            <SlidingSection startPosition={250}>
                 <h2 className="text-primary text-3xl font-bold">Cu ce ne ocupăm</h2>
                 <p className="mt-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga impedit, officiis ipsa aliquid possimus inventore voluptate laborum maxime labore in, soluta illo hic, quis quidem harum fugit. Possimus ex ipsam, placeat necessitatibus error et quas, consequatur beatae ratione voluptatum nostrum, amet delectus. Laboriosam voluptas animi quisquam neque aut quae totam voluptatem nesciunt deleniti temporibus beatae doloremque aspernatur dolor quibusdam natus eveniet recusandae libero, dignissimos pariatur non magnam? Veniam dolore repellat nam nulla assumenda nisi nostrum esse, nemo, aliquam odit aperiam recusandae dolorem dolores itaque impedit quaerat autem aliquid dolorum? Vel, iure consectetur blanditiis natus voluptate maiores neque incidunt totam repellendus.</p>
             </SlidingSection>
 
-            <SlidingSection startPosition={-250} isLast={true}>
+            <SlidingSection startPosition={-250} className="pb-20">
                 <h2 className="text-primary text-3xl font-bold">Ce spun clienții noștri</h2>
                 <div className="mt-2">
                     <ReviewSwiper data={data} />

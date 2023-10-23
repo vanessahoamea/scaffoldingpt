@@ -67,7 +67,7 @@ export default function Footer()
 
             <section className="p-4 text-center flex flex-wrap justify-center items-center">
                 <span>&copy; Copyright {year} Scaffolding Professional Team.&nbsp;</span>
-                <span>All Rights Reserved.</span>
+                <span>Toate drepturile rezervate.</span>
             </section>
         </footer>
     );
