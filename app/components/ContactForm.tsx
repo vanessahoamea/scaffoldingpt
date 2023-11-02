@@ -12,7 +12,7 @@ export default function ContactForm()
 
     useEffect(() => {
         reset();
-    }, [isSubmitSuccessful]);
+    }, [isSubmitSuccessful, reset]);
 
     function sendMessage(data: ContactInputs): void
     {

@@ -28,7 +28,7 @@ export default function Gallery(props: GalleryProps)
             setLastClicked(null);
             toggleBackground("show")
         }
-    }, [selectedImage]);
+    }, [selectedImage, lastClicked]);
 
     function toggleBackground(action: "hide" | "show"): void
     {

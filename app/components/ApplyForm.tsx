@@ -12,7 +12,7 @@ export default function ApplyForm()
 
     useEffect(() => {
         reset();
-    }, [isSubmitSuccessful]);
+    }, [isSubmitSuccessful, reset]);
 
     function sendApplication(data: ApplyInputs): void
     {

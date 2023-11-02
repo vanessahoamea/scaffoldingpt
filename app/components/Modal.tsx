@@ -24,7 +24,7 @@ export default function Modal(props: ModalProps)
         // remove focus from the modal when it unmounts
         else if(props.image === null)
             setFocusedElement(-1);
-    }, [props.image]);
+    }, [props.image, focusedElement]);
 
     function handleKeydown(e: KeyboardEvent): void
     {

@@ -37,7 +37,7 @@ export default function TermsAndConditions()
 
             <section className="px-8 md:px-16 pt-20">
                 <h2 className="text-primary text-3xl font-bold">Limite de responsabilitate</h2>
-                <p className="mt-2">Site-ul nostru este furnizat "așa cum este" și "conform disponibilității". Nu garantăm faptul că site-ul va fi întotdeauna disponibil sau că informațiile furnizate sunt corecte sau complete. Ne declinăm orice responsabilitate pentru prejudicii sau pierderi cauzate de utilizarea site-ului nostru.</p>
+                <p className="mt-2">Site-ul nostru este furnizat &quot;așa cum este&quot; și &quot;conform disponibilității&quot;. Nu garantăm faptul că site-ul va fi întotdeauna disponibil sau că informațiile furnizate sunt corecte sau complete. Ne declinăm orice responsabilitate pentru prejudicii sau pierderi cauzate de utilizarea site-ului nostru.</p>
             </section>
 
             <section className="px-8 md:px-16 pt-20 pb-20">
