@@ -13,7 +13,56 @@ export default function PrivacyPolicy()
                 </div>
             </div>
 
-            <p className="p-8">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga impedit, officiis ipsa aliquid possimus inventore voluptate laborum maxime labore in, soluta illo hic, quis quidem harum fugit. Possimus ex ipsam, placeat necessitatibus error et quas, consequatur beatae ratione voluptatum nostrum, amet delectus. Laboriosam voluptas animi quisquam neque aut quae totam voluptatem nesciunt deleniti temporibus beatae doloremque aspernatur dolor quibusdam natus eveniet recusandae libero, dignissimos pariatur non magnam? Veniam dolore repellat nam nulla assumenda nisi nostrum esse, nemo, aliquam odit aperiam recusandae dolorem dolores itaque impedit quaerat autem aliquid dolorum? Vel, iure consectetur blanditiis natus voluptate maiores neque incidunt totam repellendus.</p>
+            <section className="px-8 md:px-16 pt-20">
+                <h2 className="text-primary text-3xl font-bold">Informații colectate</h2>
+                <p className="mt-2">Colectăm informații personale pe care decideți să ni le furnizați în mod direct. Aceste informații pot include, dar nu se limitează la:</p>
+                <ul className="custom-list">
+                    <li>numele și prenumele dvs.;</li>
+                    <li>adresa de e-mail;</li>
+                    <li>numărul de telefon;</li>
+                    <li>alte informații pe care le furnizați în mesajele sau formularele completate pe site-ul nostru.</li>
+                </ul>
+            </section>
+
+            <section className="px-8 md:px-16 pt-20">
+                <h2 className="text-primary text-3xl font-bold">Scopul colectării datelor</h2>
+                <p className="mt-2">Utilizăm datele personale colectate pentru a vă oferi informații și servicii solicitate, pentru a răspunde la întrebări sau pentru a procesa cererile dvs. Datele pot fi folosite și în următoarele scopuri:</p>
+                <ul className="custom-list">
+                    <li>pentru a vă ține la curent cu noutățile, ofertele speciale și evenimentele noastre;</li>
+                    <li>pentru a îmbunătăți și personaliza experiența dumneavoastră pe site-ul nostru;</li>
+                    <li>pentru a vă contacta în legătură cu serviciile pe care le solicitați.</li>
+                </ul>
+            </section>
+
+            <section className="px-8 md:px-16 pt-20">
+                <h2 className="text-primary text-3xl font-bold">Protecția datelor</h2>
+                <p className="mt-2">Ne angajăm să protejăm datele dvs. personale și să le păstrăm în siguranță. Folosim măsuri tehnice și organizaționale adecvate pentru a proteja datele împotriva accesului neautorizat, a pierderii sau a distrugerii acestora.</p>
+            </section>
+
+            <section className="px-8 md:px-16 pt-20">
+                <h2 className="text-primary text-3xl font-bold">Divulgarea datelor către terțe părți</h2>
+                <p className="mt-2">Nu vindem, nu închiriem și nu comercializăm datele dvs. personale către terțe părți. Cu toate acestea, putem dezvălui datele dvs. personale în următoarele situații:</p>
+                <ul className="custom-list">
+                    <li>dacă sunteți de acord să le dezvăluiți;</li>
+                    <li>atunci când legea o cere sau ne obligă să o facem;</li>
+                    <li>în legătură cu un contract sau o tranzacție cu o terță parte care vizează serviciile pe care le furnizăm.</li>
+                </ul>
+            </section>
+
+            <section className="px-8 md:px-16 pt-20">
+                <h2 className="text-primary text-3xl font-bold">Accesul la datele personale</h2>
+                <p className="mt-2">Aveți dreptul de a accesa, rectifica sau șterge datele personale pe care le deținem despre dvs. Pentru a exercita aceste drepturi, vă rugăm să ne contactați la adresa <a href="mailto:scaffoldingpt@gmail.com" className="text-primary font-semibold">scaffoldingpt@gmail.com</a>.</p>
+            </section>
+
+            <section className="px-8 md:px-16 pt-20">
+                <h2 className="text-primary text-3xl font-bold">Actualizări ale Politicii de Confidențialitate</h2>
+                <p className="mt-2">Această Politică de Confidențialitate poate fi actualizată periodic pentru a reflecta modificări ale practicilor noastre privind protecția datelor. Orice modificare va fi afișată pe această pagină.</p>
+            </section>
+
+            <section className="px-8 md:px-16 pt-20 pb-20">
+                <h2 className="text-primary text-3xl font-bold">Contact</h2>
+                <p className="mt-2">Dacă aveți întrebări sau preocupări cu privire la Politica noastră de Confidențialitate, vă rugăm să ne contactați la <a href="mailto:scaffoldingpt@gmail.com" className="text-primary font-semibold">scaffoldingpt@gmail.com</a>.</p>
+            </section>
         </main>
     );
 }
