@@ -9,9 +9,9 @@ export async function POST(request: Request)
     const body = await request.json();
 
     if(
-        !body.name.trim() || !body.subject.trim() || !body.message.trim() || 
+        !body.name.trim() || !body.phone.trim() || !body.email.trim() || 
         !body.height.trim() || !body.place.trim() || 
-        (!body.phone.trim() && !body.email.trim())
+        !body.subject.trim() || !body.message.trim()
     )
         throw new Error("Please fill in all the required fields.");
 

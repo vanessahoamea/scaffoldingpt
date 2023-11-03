@@ -68,7 +68,7 @@ export default function ApplyForm()
                     {...register("phone", {
                         validate: (value, formValues) => /^(?!\s*$).+/.test(value) || /^(?!\s*$).+/.test(formValues.email)
                     })}
-                    aria-invalid={!!errors.phone && !!errors.email}
+                    aria-invalid={!!errors.phone}
                 />
                 
                 <label htmlFor={`email-${formId}`}>Adresă de e-mail</label>
@@ -79,7 +79,7 @@ export default function ApplyForm()
                     {...register("email", {
                         validate: (value, formValues) => /^(?!\s*$).+/.test(value) || /^(?!\s*$).+/.test(formValues.phone) 
                     })}
-                    aria-invalid={!!errors.email && !!errors.phone}
+                    aria-invalid={!!errors.email}
                 />
             </div>
 

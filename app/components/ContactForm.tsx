@@ -28,12 +28,12 @@ export default function ContactForm()
 
     function alertError(): void
     {
-        if(errors.name || errors.phone || errors.email)
-            alert("Vă rugăm să specificați numele dvs. și cel puțin o metodă de contact (adresă de e-mail sau număr de telefon).");
-        else if(errors.height || errors.place)
-            alert("Vă rugăm să specificați înălțimea și localizarea lucrării dorite.");
+        if(errors.name)
+            alert("Vă rugăm să specificați numele dvs.");
+        else if(errors.phone || errors.email)
+            alert("Vă rugăm să furnizați cel puțin o metodă de contact (adresă de e-mail sau număr de telefon).");
         else
-            alert("Vă rugăm să specificați subiectul mesajului, precum și mesajul propriu-zis.");
+            alert("Vă rugăm să îi adăugați mesajului un subiect.");
     }
     
     return (
@@ -59,7 +59,7 @@ export default function ContactForm()
                     {...register("phone", {
                         validate: (value, formValues) => /^(?!\s*$).+/.test(value) || /^(?!\s*$).+/.test(formValues.email)
                     })}
-                    aria-invalid={!!errors.phone && !!errors.email}
+                    aria-invalid={!!errors.phone}
                 />
 
                 <label htmlFor={`email-${formId}`}>Adresă de e-mail</label>
@@ -70,7 +70,7 @@ export default function ContactForm()
                     {...register("email", {
                         validate: (value, formValues) => /^(?!\s*$).+/.test(value) || /^(?!\s*$).+/.test(formValues.phone) 
                     })}
-                    aria-invalid={!!errors.email && !!errors.phone}
+                    aria-invalid={!!errors.email}
                 />
             </div>
 
@@ -80,8 +80,7 @@ export default function ContactForm()
                     type="text"
                     placeholder="Înălțime lucrare"
                     id={`height-${formId}`}
-                    {...register("height", { required: true, pattern: /^(?!\s*$).+/ })}
-                    aria-invalid={!!errors.height}
+                    {...register("height")}
                 />
 
                 <label htmlFor={`place-${formId}`}>Localizare lucrare</label>
@@ -89,8 +88,7 @@ export default function ContactForm()
                     type="text"
                     placeholder="Localizare lucrare"
                     id={`place-${formId}`}
-                    {...register("place", { required: true, pattern: /^(?!\s*$).+/ })}
-                    aria-invalid={!!errors.place}
+                    {...register("place")}
                 />
             </div>
 
@@ -108,8 +106,7 @@ export default function ContactForm()
                 rows={5}
                 placeholder="Mesaj"
                 id={`message-${formId}`}
-                {...register("message", { required: true, pattern: /^(?!\s*$).+/ })}
-                aria-invalid={!!errors.message}
+                {...register("message")}
             />
 
             <button disabled={isSubmitting}>Trimite</button>
