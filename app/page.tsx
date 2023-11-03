@@ -30,9 +30,20 @@ export default async function Home()
                 <p className="mt-2">Suntem o echipă dedicată, cu o experiență vastă de peste 30 de ani în industria schelelor. Originea noastră se regăsește în Grecia, unde am acumulat o expertiză solidă, lucrând pe proiecte complexe, inclusiv construcții impresionante și proiecte pe vapoare. Ne-am întors în România dornici să împărtășim cunoștințele noastre internaționale și să le combinăm cu o abordare inovatoare.</p>
             </SlidingSection>
 
-            <SlidingSection startPosition={250}>
-                <h2 className="text-primary text-3xl font-bold">Cu ce ne ocupăm</h2>
-                <p className="mt-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga impedit, officiis ipsa aliquid possimus inventore voluptate laborum maxime labore in, soluta illo hic, quis quidem harum fugit. Possimus ex ipsam, placeat necessitatibus error et quas, consequatur beatae ratione voluptatum nostrum, amet delectus. Laboriosam voluptas animi quisquam neque aut quae totam voluptatem nesciunt deleniti temporibus beatae doloremque aspernatur dolor quibusdam natus eveniet recusandae libero, dignissimos pariatur non magnam? Veniam dolore repellat nam nulla assumenda nisi nostrum esse, nemo, aliquam odit aperiam recusandae dolorem dolores itaque impedit quaerat autem aliquid dolorum? Vel, iure consectetur blanditiis natus voluptate maiores neque incidunt totam repellendus.</p>
+            <SlidingSection startPosition={250} className="grid grid-cols-1 lg:grid-cols-custom gap-10 items-center">
+                <div>
+                    <h2 className="text-primary text-3xl font-bold">Cu ce ne ocupăm</h2>
+                    <p className="mt-2">Suntem dedicați să vă oferim cele mai bune soluții de schele metalice pentru proiectele dvs. din industria construcțiilor. Ceea ce ne deosebește de ceilalți este pasiunea noastră pentru ceea ce facem și angajamentul nostru față de calitate și satisfacția clientului. De la construcții rezidențiale la proiecte industriale, suntem pregătiți să vă ajutăm.</p>
+                    <p className="mt-2">Nu oferim doar produse de calitate superioară; furnizăm și servicii complete de montare și demontare. Echipa noastră de schelari acreditați de Minister este specializată în asigurarea siguranței și stabilității schelelor pe șantierul dvs. De asemenea, deținem acreditare ISCIR până la montarea schelei, ceea ce vă oferă pacea deplină a minții.</p>
+                    <p className="mt-2">Înțelegem că fiecare proiect are cerințe specifice. De aceea, adaptăm ofertele noastre pentru a corespunde nevoilor dvs. Cu expertiza noastră, vă putem ajuta să găsiți cea mai eficientă soluție de schelă metalică pentru proiectul dvs.</p>
+                </div>
+                <div className="main-image">
+                    <img
+                        src="/main.png"
+                        alt="Informații de contact"
+                        className="w-[500px]"
+                    />
+                </div>
             </SlidingSection>
 
             <SlidingSection startPosition={-250} className="pb-20">

@@ -33,6 +33,18 @@ footer .social-media-link {
     @apply text-5xl text-white mx-1 cursor-pointer;
 }
 
+.main-image {
+    @apply w-fit mx-auto lg:-order-1 relative;
+}
+.main-image::before {
+    content: "";
+    @apply block w-full h-full absolute -left-3 -top-3 -z-10 border-2 border-primary;
+}
+.main-image::after {
+    content: "";
+    @apply block w-full h-full absolute -right-3 -bottom-3 -z-10 border-2 border-primary;
+}
+
 .swiper {
     @apply max-w-6xl w-full p-4 pb-10 !important;
 }

@@ -60,6 +60,7 @@ export default function Tabs(props: TabsProps)
                         className="hidden text-center"
                         role="tabpanel"
                         tabIndex={0}
+                        aria-selected={currentTab === tab.id}
                     >
                         {tab.content}
                     </p>

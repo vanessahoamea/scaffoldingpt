@@ -19,6 +19,9 @@ const config: Config = {
       },
       screens: {
         "xs": "320px"
+      },
+      gridTemplateColumns: {
+        "custom": "minmax(200px, 400px) auto"
       }
     },
   },
