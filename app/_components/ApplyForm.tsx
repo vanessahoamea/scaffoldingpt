@@ -2,7 +2,7 @@
 
 import { useEffect, useId } from "react";
 import { useForm } from "react-hook-form";
-import type { ApplyInputs } from "../types";
+import type { ApplyInputs } from "../_utils/types";
 
 export default function ApplyForm()
 {

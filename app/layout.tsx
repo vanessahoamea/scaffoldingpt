@@ -6,8 +6,8 @@ import "@fortawesome/fontawesome-svg-core/styles.css";
 import { config } from "@fortawesome/fontawesome-svg-core";
 config.autoAddCss = false;
 
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
+import Navbar from "./_components/Navbar";
+import Footer from "./_components/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 

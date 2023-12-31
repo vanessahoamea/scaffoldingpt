@@ -1,8 +1,8 @@
 import { promises as fs } from "fs";
-import PrimaryButton from "./components/PrimaryButton";
-import SlidingSection from "./components/SlidingSection";
-import ReviewSwiper from "./components/ReviewSwiper";
-import type { ReviewData } from "./types";
+import PrimaryButton from "./_components/PrimaryButton";
+import SlidingSection from "./_components/SlidingSection";
+import ReviewSwiper from "./_components/ReviewSwiper";
+import type { ReviewData } from "./_utils/types";
 
 export default async function Home()
 {

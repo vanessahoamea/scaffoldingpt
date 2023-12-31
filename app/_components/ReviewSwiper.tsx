@@ -3,7 +3,7 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { A11y, Autoplay, Keyboard, Pagination } from "swiper/modules";
 import Review from "./Review";
-import type { ReviewData } from "../types";
+import type { ReviewData } from "../_utils/types";
 import "swiper/css";
 import "swiper/css/a11y";
 import "swiper/css/keyboard";

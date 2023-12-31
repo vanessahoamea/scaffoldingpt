@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+/* common styles */
 header .web-menu-link {
     @apply px-2 relative;
     @apply transition-colors duration-200;
@@ -33,6 +34,25 @@ footer .social-media-link {
     @apply text-5xl text-white mx-1 cursor-pointer;
 }
 
+form label {
+    @apply absolute -left-96;
+}
+form input, form textarea {
+    @apply w-full border border-gray-500 rounded-sm resize-none mb-3 p-2;
+}
+form button {
+    @apply px-5 py-2 border-2 border-primary text-primary hover:bg-primary hover:text-white rounded;
+}
+
+.custom-list li {
+    @apply pl-4;
+}
+.custom-list li::before {
+    content: "\2022";
+    @apply text-primary text-xl font-bold inline-block w-4 -ml-4;
+}
+
+/* main page styles */
 .main-image {
     @apply w-fit mx-auto lg:-order-1 relative;
 }
@@ -52,6 +72,7 @@ footer .social-media-link {
     @apply bg-primary !important;
 }
 
+/* about page styles */
 .tabs ul li[aria-selected="true"] {
     @apply text-primary border-b-2 border-primary font-semibold;
 }
@@ -78,22 +99,4 @@ footer .social-media-link {
 }
 div[role="dialog"] button {
     @apply bg-primary bg-opacity-40 hover:bg-opacity-80 text-3xl text-white rounded z-10;
-}
-
-.custom-list li {
-    @apply pl-4;
-}
-.custom-list li::before {
-    content: "\2022";
-    @apply text-primary text-xl font-bold inline-block w-4 -ml-4;
-}
-
-form label {
-    @apply absolute -left-96;
-}
-form input, form textarea {
-    @apply w-full border border-gray-500 rounded-sm resize-none mb-3 p-2;
-}
-form button {
-    @apply px-5 py-2 border-2 border-primary text-primary hover:bg-primary hover:text-white rounded;
 }

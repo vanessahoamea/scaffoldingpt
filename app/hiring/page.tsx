@@ -1,4 +1,4 @@
-import ApplyForm from "../components/ApplyForm";
+import ApplyForm from "../_components/ApplyForm";
 
 export default function Hiring()
 {
