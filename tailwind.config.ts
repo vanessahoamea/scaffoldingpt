@@ -21,7 +21,8 @@ const config: Config = {
         "xs": "320px"
       },
       gridTemplateColumns: {
-        "custom": "minmax(200px, 400px) auto"
+        "expand-right": "minmax(200px, 400px) auto",
+        "expand-left": "auto minmax(200px, 400px)"
       }
     },
   },

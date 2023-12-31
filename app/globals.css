@@ -53,14 +53,11 @@ form button {
 }
 
 /* main page styles */
-.main-image {
-    @apply w-fit mx-auto lg:-order-1 relative;
-}
-.main-image::before {
+.double-borders::before {
     content: "";
     @apply block w-full h-full absolute -left-3 -top-3 -z-10 border-2 border-primary;
 }
-.main-image::after {
+.double-borders::after {
     content: "";
     @apply block w-full h-full absolute -right-3 -bottom-3 -z-10 border-2 border-primary;
 }
