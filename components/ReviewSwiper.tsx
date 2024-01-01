@@ -1,14 +1,21 @@
 "use client";
 
+import Review from "./Review";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { A11y, Autoplay, Keyboard, Pagination } from "swiper/modules";
-import Review from "./Review";
-import type { ReviewData } from "../_utils/types";
+import type { KeyTextField, NumberField, RichTextField } from "@prismicio/client";
 import "swiper/css";
 import "swiper/css/a11y";
 import "swiper/css/keyboard";
 import "swiper/css/pagination";
 
+interface ReviewData
+{
+    name: KeyTextField | undefined,
+    job_title: KeyTextField | undefined,
+    rating: NumberField | undefined,
+    content: RichTextField | undefined
+};
 interface ReviewSwiperProps
 {
     data: ReviewData[]
@@ -32,8 +39,8 @@ export default function ReviewSwiper(props: ReviewSwiperProps)
             }}
         >
         {
-            props.data.map((review: ReviewData) => (
-                <SwiperSlide key={review.id}>
+            props.data.map((review: ReviewData, index) => (
+                <SwiperSlide key={index}>
                     <Review {...review} />
                 </SwiperSlide>
             ))

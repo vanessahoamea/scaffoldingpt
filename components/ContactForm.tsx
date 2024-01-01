@@ -2,7 +2,7 @@
 
 import { useEffect, useId } from "react";
 import { useForm } from "react-hook-form";
-import type { ContactInputs } from "../_utils/types";
+import type { ContactInputs } from "@/utils/types";
 
 export default function ContactForm()
 {

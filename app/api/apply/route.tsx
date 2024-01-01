@@ -1,4 +1,4 @@
-import ApplyTemplate from "@/app/_components/ApplyTemplate";
+import ApplyTemplate from "@/components/ApplyTemplate";
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 

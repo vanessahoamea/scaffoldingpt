@@ -1,8 +1,8 @@
 import { promises as fs } from "fs";
-import Card from "../_components/Card"
-import Tabs from "../_components/Tabs";
-import PrimaryButton from "../_components/PrimaryButton";
-import type { AboutData } from "../_utils/types";
+import Card from "@/components/Card"
+import Tabs from "@/components/Tabs";
+import PrimaryButton from "@/components/PrimaryButton";
+import type { AboutData } from "@/utils/types";
 
 export default async function About()
 {

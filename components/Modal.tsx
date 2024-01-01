@@ -3,7 +3,7 @@
 import { Dispatch, KeyboardEvent, SetStateAction, useEffect, useRef, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronLeft, faChevronRight, faXmark } from "@fortawesome/free-solid-svg-icons";
-import type { ImageData } from "../_utils/types";
+import type { ImageData } from "@/utils/types";
 
 interface ModalProps
 {

@@ -1,8 +1,8 @@
 import { promises as fs } from "fs";
 import Link from "next/link";
-import AccordionItem from "../_components/AccordionItem";
-import Gallery from "../_components/Gallery";
-import type { ImageData, ServiceData } from "../_utils/types";
+import AccordionItem from "@/components/AccordionItem";
+import Gallery from "@/components/Gallery";
+import type { ImageData, ServiceData } from "@/utils/types";
 
 export default async function Services()
 {

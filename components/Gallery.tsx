@@ -2,7 +2,7 @@
 
 import { KeyboardEvent, useEffect, useState } from "react";
 import Modal from "./Modal";
-import type { ImageData } from "../_utils/types";
+import type { ImageData } from "@/utils/types";
 
 interface GalleryProps
 {

@@ -1,5 +1,5 @@
-import ContactDetails from "../_components/ContactDetails";
-import ContactForm from "../_components/ContactForm";
+import ContactDetails from "@/components/ContactDetails";
+import ContactForm from "@/components/ContactForm";
 import { faEnvelope, faLocationDot, faPhone } from "@fortawesome/free-solid-svg-icons";
 
 export default function Contact()

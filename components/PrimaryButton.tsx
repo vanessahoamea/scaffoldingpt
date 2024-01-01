@@ -1,10 +1,11 @@
 "use client";
 
 import { useRouter } from "next/navigation";
+import type { KeyTextField } from "@prismicio/client";
 
 interface PrimaryButtonProps
 {
-    text: string,
+    text: string | KeyTextField,
     path: string
 };
 export default function PrimaryButton(props: PrimaryButtonProps)

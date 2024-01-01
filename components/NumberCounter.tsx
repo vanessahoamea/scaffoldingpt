@@ -3,23 +3,24 @@
 import { useEffect, useState } from "react";
 import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import type { KeyTextField, NumberField } from "@prismicio/client";
 
 interface NumberCounterProps
 {
-    count: number,
-    text: string,
+    count: NumberField | undefined,
+    text: KeyTextField | undefined,
     icon: IconDefinition,
-    unit?: string
+    unit?: KeyTextField | undefined
 };
 export default function NumberCounter(props: NumberCounterProps)
 {
     const [value, setValue] = useState(0);
 
     useEffect(() => {
-        let duration = Math.floor(2000 / props.count);
+        let duration = Math.floor(2000 / (props.count ?? 1));
         let interval: NodeJS.Timeout;
 
-        if(value < props.count)
+        if(value < (props.count ?? 1))
         {
             interval = setInterval(() => {
                 setValue((value) => value + 1);

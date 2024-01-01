@@ -1,13 +1,14 @@
+import { PrismicRichText } from "@prismicio/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
+import type { KeyTextField, NumberField, RichTextField } from "@prismicio/client";
 
 interface ReviewProps
 {
-    id: number,
-    name: string,
-    job_title: string,
-    rating: number,
-    content: string
+    name: KeyTextField | undefined,
+    job_title: KeyTextField | undefined,
+    rating: NumberField | undefined,
+    content: RichTextField | undefined
 };
 export default function Review(props: ReviewProps)
 {
@@ -18,15 +19,19 @@ export default function Review(props: ReviewProps)
                 <p className="text-gray-500 italic">{props.job_title}</p>
             </div>
 
-            <div className="mt-4" role="img" aria-label={`${props.rating} stele`}>
+            <div className="mt-4" role="img" aria-label={`${props.rating ?? 5} stele`}>
             {
-                [...Array(props.rating)].map((_, index) => (
+                [...Array(props.rating ?? 5)].map((_, index) => (
                     <FontAwesomeIcon key={index} icon={faStar} className="text-xl text-yellow-400" />
                 ))
             }
             </div>
 
-            <p className="mt-4">{props.content}</p>
+            <PrismicRichText field={props.content} components={{
+                paragraph: ({ children }) => (
+                    <p className="mt-4">{children}</p>
+                )
+            }} />
         </div>
     );
 }

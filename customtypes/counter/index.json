@@ -1,0 +1,38 @@
+{
+  "id": "counter",
+  "label": "Counter",
+  "format": "custom",
+  "repeatable": true,
+  "status": true,
+  "json": {
+    "Main": {
+      "uid": {
+        "config": {
+          "label": "UID"
+        },
+        "type": "UID"
+      },
+      "count": {
+        "type": "Number",
+        "config": {
+          "label": "Count",
+          "placeholder": ""
+        }
+      },
+      "text": {
+        "type": "Text",
+        "config": {
+          "label": "Text",
+          "placeholder": ""
+        }
+      },
+      "unit": {
+        "type": "Text",
+        "config": {
+          "label": "Unit",
+          "placeholder": ""
+        }
+      }
+    }
+  }
+}
