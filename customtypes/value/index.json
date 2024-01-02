@@ -1,0 +1,39 @@
+{
+  "id": "value",
+  "label": "Value",
+  "format": "custom",
+  "repeatable": true,
+  "status": true,
+  "json": {
+    "Main": {
+      "uid": {
+        "config": {
+          "label": "UID"
+        },
+        "type": "UID"
+      },
+      "image": {
+        "type": "Image",
+        "config": {
+          "label": "Image",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "title": {
+        "type": "Text",
+        "config": {
+          "label": "Title",
+          "placeholder": ""
+        }
+      },
+      "content": {
+        "type": "Text",
+        "config": {
+          "label": "Content",
+          "placeholder": ""
+        }
+      }
+    }
+  }
+}

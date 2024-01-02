@@ -1,8 +1,10 @@
+import type { KeyTextField } from "@prismicio/client";
+
 interface CardProps
 {
     image: string,
-    title: string,
-    content: string
+    title: KeyTextField | undefined,
+    content: KeyTextField | undefined
 };
 export default function Card(props: CardProps)
 {

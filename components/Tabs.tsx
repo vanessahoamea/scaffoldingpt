@@ -1,15 +1,20 @@
 "use client";
 
 import { KeyboardEvent, useEffect, useState } from "react";
-import type { AboutData } from "@/utils/types";
+import type { KeyTextField } from "@prismicio/client";
 
+interface AboutData
+{
+    title: KeyTextField | undefined,
+    content: KeyTextField | undefined
+};
 interface TabsProps
 {
     data: AboutData[]
 };
 export default function Tabs(props: TabsProps)
 {
-    const [currentTab, setCurrentTab] = useState(1);
+    const [currentTab, setCurrentTab] = useState(0);
 
     useEffect(() => {
         const tab = document.querySelector<HTMLLIElement>("li[aria-selected='true']");
@@ -21,10 +26,10 @@ export default function Tabs(props: TabsProps)
         switch(e.key)
         {
             case "ArrowLeft":
-                setCurrentTab((currentTab) => currentTab - 1 > 0 ? currentTab - 1 : props.data.length);
+                setCurrentTab((currentTab) => currentTab - 1 >= 0 ? currentTab - 1 : props.data.length - 1);
                 break;
             case "ArrowRight":
-                setCurrentTab((currentTab) => currentTab + 1 <= props.data.length ? currentTab + 1 : 1);
+                setCurrentTab((currentTab) => currentTab + 1 < props.data.length ? currentTab + 1 : 0);
                 break;
             default:
                 break;
@@ -39,14 +44,14 @@ export default function Tabs(props: TabsProps)
                 onKeyDown={switchTabs}
             >
             {
-                props.data.map((tab: AboutData) => (
+                props.data.map((tab: AboutData, index) => (
                     <li
-                        key={tab.id}
+                        key={index}
                         className="w-full py-2 text-center border-b border-gray-200 cursor-pointer"
                         role="tab"
-                        tabIndex={currentTab === tab.id ? 0 : -1}
-                        aria-selected={currentTab === tab.id}
-                        onClick={() => setCurrentTab(tab.id)}
+                        tabIndex={currentTab === index ? 0 : -1}
+                        aria-selected={currentTab === index}
+                        onClick={() => setCurrentTab(index)}
                     >
                         {tab.title}
                     </li>
@@ -54,13 +59,13 @@ export default function Tabs(props: TabsProps)
             }
             </ul>
             {
-                props.data.map((tab: AboutData) => (
+                props.data.map((tab: AboutData, index) => (
                     <p
-                        key={tab.id}
+                        key={index}
                         className="hidden text-center"
                         role="tabpanel"
                         tabIndex={0}
-                        aria-selected={currentTab === tab.id}
+                        aria-selected={currentTab === index}
                     >
                         {tab.content}
                     </p>

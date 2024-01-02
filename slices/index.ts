@@ -3,11 +3,16 @@
 import dynamic from "next/dynamic";
 
 export const components = {
+  about_tabs: dynamic(() => import("./AboutTabs")),
   about_us_section: dynamic(() => import("./AboutUsSection")),
+  call_to_action: dynamic(() => import("./CallToAction")),
   contact_us_section: dynamic(() => import("./ContactUsSection")),
   map: dynamic(() => import("./Map")),
+  our_values_section: dynamic(() => import("./OurValuesSection")),
   request_offer_section: dynamic(() => import("./RequestOfferSection")),
   reviews_section: dynamic(() => import("./ReviewsSection")),
+  separator: dynamic(() => import("./Separator")),
   site_banner: dynamic(() => import("./SiteBanner")),
+  text_section: dynamic(() => import("./AcknowledgementsSection")),
   what_we_do_section: dynamic(() => import("./WhatWeDoSection")),
 };

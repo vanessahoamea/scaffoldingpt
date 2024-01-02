@@ -1,38 +1,12 @@
 {
-  "id": "site_banner",
+  "id": "call_to_action",
   "type": "SharedSlice",
-  "name": "SiteBanner",
-  "description": "SiteBanner",
+  "name": "CallToAction",
+  "description": "CallToAction",
   "variations": [
     {
       "id": "default",
       "name": "Default",
-      "docURL": "...",
-      "version": "initial",
-      "description": "Default",
-      "imageUrl": "",
-      "primary": {
-        "image": {
-          "type": "Image",
-          "config": {
-            "label": "Image",
-            "constraint": {},
-            "thumbnails": []
-          }
-        },
-        "title": {
-          "type": "Text",
-          "config": {
-            "label": "Title",
-            "placeholder": ""
-          }
-        }
-      },
-      "items": {}
-    },
-    {
-      "id": "homeSiteBanner",
-      "name": "Home Site Banner",
       "docURL": "...",
       "version": "initial",
       "description": "Default",

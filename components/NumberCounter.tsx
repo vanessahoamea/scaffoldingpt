@@ -28,7 +28,7 @@ export default function NumberCounter(props: NumberCounterProps)
         }
       
         return () => clearInterval(interval);
-    }, [value]);
+    }, [value, props.count]);
 
     return (
         <div className="bg-gray-300 w-full h-36 lg:w-36 p-4 flex flex-col justify-around items-center gap-1 rounded-sm">

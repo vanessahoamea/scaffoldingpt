@@ -4,6 +4,77 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
+type AboutPageDocumentDataSlicesSlice =
+  | SiteBannerSlice
+  | AboutTabsSlice
+  | OurValuesSectionSlice
+  | SeparatorSlice
+  | TextSectionSlice
+  | CallToActionSlice;
+
+/**
+ * Content for About Page documents
+ */
+interface AboutPageDocumentData {
+  /**
+   * Slice Zone field in *About Page*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about_page.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<AboutPageDocumentDataSlicesSlice> /**
+   * Meta Description field in *About Page*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: about_page.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *About Page*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about_page.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+
+  /**
+   * Meta Title field in *About Page*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: about_page.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_title: prismic.KeyTextField;
+}
+
+/**
+ * About Page document from Prismic
+ *
+ * - **API ID**: `about_page`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type AboutPageDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<AboutPageDocumentData>,
+    "about_page",
+    Lang
+  >;
+
 type ContactPageDocumentDataSlicesSlice =
   | MapSlice
   | RequestOfferSectionSlice
@@ -257,11 +328,163 @@ interface ReviewDocumentData {
 export type ReviewDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<ReviewDocumentData>, "review", Lang>;
 
+/**
+ * Content for Tab documents
+ */
+interface TabDocumentData {
+  /**
+   * Title field in *Tab*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: tab.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Content field in *Tab*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: tab.content
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  content: prismic.KeyTextField;
+}
+
+/**
+ * Tab document from Prismic
+ *
+ * - **API ID**: `tab`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type TabDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<Simplify<TabDocumentData>, "tab", Lang>;
+
+/**
+ * Content for Value documents
+ */
+interface ValueDocumentData {
+  /**
+   * Image field in *Value*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: value.image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * Title field in *Value*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: value.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Content field in *Value*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: value.content
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  content: prismic.KeyTextField;
+}
+
+/**
+ * Value document from Prismic
+ *
+ * - **API ID**: `value`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type ValueDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<Simplify<ValueDocumentData>, "value", Lang>;
+
 export type AllDocumentTypes =
+  | AboutPageDocument
   | ContactPageDocument
   | CounterDocument
   | HomePageDocument
-  | ReviewDocument;
+  | ReviewDocument
+  | TabDocument
+  | ValueDocument;
+
+/**
+ * Primary content in *AboutTabs → Primary*
+ */
+export interface AboutTabsSliceDefaultPrimary {
+  /**
+   * Title field in *AboutTabs → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about_tabs.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *AboutTabs → Items*
+ */
+export interface AboutTabsSliceDefaultItem {
+  /**
+   * Tab field in *AboutTabs → Items*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about_tabs.items[].tab
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  tab: prismic.ContentRelationshipField<"tab">;
+}
+
+/**
+ * Default variation for AboutTabs Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type AboutTabsSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<AboutTabsSliceDefaultPrimary>,
+  Simplify<AboutTabsSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *AboutTabs*
+ */
+type AboutTabsSliceVariation = AboutTabsSliceDefault;
+
+/**
+ * AboutTabs Shared Slice
+ *
+ * - **API ID**: `about_tabs`
+ * - **Description**: AboutTabs
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type AboutTabsSlice = prismic.SharedSlice<
+  "about_tabs",
+  AboutTabsSliceVariation
+>;
 
 /**
  * Primary content in *AboutUsSection → Primary*
@@ -331,6 +554,81 @@ type AboutUsSectionSliceVariation = AboutUsSectionSliceDefault;
 export type AboutUsSectionSlice = prismic.SharedSlice<
   "about_us_section",
   AboutUsSectionSliceVariation
+>;
+
+/**
+ * Primary content in *CallToAction → Primary*
+ */
+export interface CallToActionSliceDefaultPrimary {
+  /**
+   * Image field in *CallToAction → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: call_to_action.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * Title field in *CallToAction → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: call_to_action.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Description field in *CallToAction → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: call_to_action.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  description: prismic.KeyTextField;
+
+  /**
+   * Button Text field in *CallToAction → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: call_to_action.primary.button_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  button_text: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for CallToAction Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CallToActionSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<CallToActionSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *CallToAction*
+ */
+type CallToActionSliceVariation = CallToActionSliceDefault;
+
+/**
+ * CallToAction Shared Slice
+ *
+ * - **API ID**: `call_to_action`
+ * - **Description**: CallToAction
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CallToActionSlice = prismic.SharedSlice<
+  "call_to_action",
+  CallToActionSliceVariation
 >;
 
 /**
@@ -451,6 +749,66 @@ type MapSliceVariation = MapSliceDefault;
 export type MapSlice = prismic.SharedSlice<"map", MapSliceVariation>;
 
 /**
+ * Primary content in *OurValuesSection → Primary*
+ */
+export interface OurValuesSectionSliceDefaultPrimary {
+  /**
+   * Title field in *OurValuesSection → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: our_values_section.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *OurValuesSection → Items*
+ */
+export interface OurValuesSectionSliceDefaultItem {
+  /**
+   * Value field in *OurValuesSection → Items*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: our_values_section.items[].value
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  value: prismic.ContentRelationshipField<"value">;
+}
+
+/**
+ * Default variation for OurValuesSection Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type OurValuesSectionSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<OurValuesSectionSliceDefaultPrimary>,
+  Simplify<OurValuesSectionSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *OurValuesSection*
+ */
+type OurValuesSectionSliceVariation = OurValuesSectionSliceDefault;
+
+/**
+ * OurValuesSection Shared Slice
+ *
+ * - **API ID**: `our_values_section`
+ * - **Description**: OurValuesSection
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type OurValuesSectionSlice = prismic.SharedSlice<
+  "our_values_section",
+  OurValuesSectionSliceVariation
+>;
+
+/**
  * Primary content in *RequestOfferSection → Primary*
  */
 export interface RequestOfferSectionSliceDefaultPrimary {
@@ -566,19 +924,39 @@ export type ReviewsSectionSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Default variation for Separator Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type SeparatorSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Record<string, never>,
+  never
+>;
+
+/**
+ * Slice variation for *Separator*
+ */
+type SeparatorSliceVariation = SeparatorSliceDefault;
+
+/**
+ * Separator Shared Slice
+ *
+ * - **API ID**: `separator`
+ * - **Description**: Separator
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type SeparatorSlice = prismic.SharedSlice<
+  "separator",
+  SeparatorSliceVariation
+>;
+
+/**
  * Primary content in *SiteBanner → Primary*
  */
 export interface SiteBannerSliceDefaultPrimary {
-  /**
-   * Title field in *SiteBanner → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: site_banner.primary.title
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  title: prismic.KeyTextField;
-
   /**
    * Image field in *SiteBanner → Primary*
    *
@@ -588,6 +966,16 @@ export interface SiteBannerSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   image: prismic.ImageField<never>;
+
+  /**
+   * Title field in *SiteBanner → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: site_banner.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
 }
 
 /**
@@ -608,16 +996,6 @@ export type SiteBannerSliceDefault = prismic.SharedSliceVariation<
  */
 export interface SiteBannerSliceHomeSiteBannerPrimary {
   /**
-   * Title field in *SiteBanner → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: site_banner.primary.title
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  title: prismic.KeyTextField;
-
-  /**
    * Image field in *SiteBanner → Primary*
    *
    * - **Field Type**: Image
@@ -626,6 +1004,16 @@ export interface SiteBannerSliceHomeSiteBannerPrimary {
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   image: prismic.ImageField<never>;
+
+  /**
+   * Title field in *SiteBanner → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: site_banner.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
 
   /**
    * Description field in *SiteBanner → Primary*
@@ -678,6 +1066,61 @@ type SiteBannerSliceVariation =
 export type SiteBannerSlice = prismic.SharedSlice<
   "site_banner",
   SiteBannerSliceVariation
+>;
+
+/**
+ * Primary content in *AcknowledgementsSection → Primary*
+ */
+export interface TextSectionSliceDefaultPrimary {
+  /**
+   * Title field in *AcknowledgementsSection → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: text_section.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Content field in *AcknowledgementsSection → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: text_section.primary.content
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  content: prismic.RichTextField;
+}
+
+/**
+ * Default variation for AcknowledgementsSection Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TextSectionSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<TextSectionSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *AcknowledgementsSection*
+ */
+type TextSectionSliceVariation = TextSectionSliceDefault;
+
+/**
+ * AcknowledgementsSection Shared Slice
+ *
+ * - **API ID**: `text_section`
+ * - **Description**: TextSection
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TextSectionSlice = prismic.SharedSlice<
+  "text_section",
+  TextSectionSliceVariation
 >;
 
 /**
@@ -755,6 +1198,9 @@ declare module "@prismicio/client" {
 
   namespace Content {
     export type {
+      AboutPageDocument,
+      AboutPageDocumentData,
+      AboutPageDocumentDataSlicesSlice,
       ContactPageDocument,
       ContactPageDocumentData,
       ContactPageDocumentDataSlicesSlice,
@@ -765,12 +1211,25 @@ declare module "@prismicio/client" {
       HomePageDocumentDataSlicesSlice,
       ReviewDocument,
       ReviewDocumentData,
+      TabDocument,
+      TabDocumentData,
+      ValueDocument,
+      ValueDocumentData,
       AllDocumentTypes,
+      AboutTabsSlice,
+      AboutTabsSliceDefaultPrimary,
+      AboutTabsSliceDefaultItem,
+      AboutTabsSliceVariation,
+      AboutTabsSliceDefault,
       AboutUsSectionSlice,
       AboutUsSectionSliceDefaultPrimary,
       AboutUsSectionSliceDefaultItem,
       AboutUsSectionSliceVariation,
       AboutUsSectionSliceDefault,
+      CallToActionSlice,
+      CallToActionSliceDefaultPrimary,
+      CallToActionSliceVariation,
+      CallToActionSliceDefault,
       ContactUsSectionSlice,
       ContactUsSectionSliceDefaultPrimary,
       ContactUsSectionSliceVariation,
@@ -779,6 +1238,11 @@ declare module "@prismicio/client" {
       MapSliceDefaultPrimary,
       MapSliceVariation,
       MapSliceDefault,
+      OurValuesSectionSlice,
+      OurValuesSectionSliceDefaultPrimary,
+      OurValuesSectionSliceDefaultItem,
+      OurValuesSectionSliceVariation,
+      OurValuesSectionSliceDefault,
       RequestOfferSectionSlice,
       RequestOfferSectionSliceDefaultPrimary,
       RequestOfferSectionSliceVariation,
@@ -788,12 +1252,19 @@ declare module "@prismicio/client" {
       ReviewsSectionSliceDefaultItem,
       ReviewsSectionSliceVariation,
       ReviewsSectionSliceDefault,
+      SeparatorSlice,
+      SeparatorSliceVariation,
+      SeparatorSliceDefault,
       SiteBannerSlice,
       SiteBannerSliceDefaultPrimary,
       SiteBannerSliceHomeSiteBannerPrimary,
       SiteBannerSliceVariation,
       SiteBannerSliceDefault,
       SiteBannerSliceHomeSiteBanner,
+      TextSectionSlice,
+      TextSectionSliceDefaultPrimary,
+      TextSectionSliceVariation,
+      TextSectionSliceDefault,
       WhatWeDoSectionSlice,
       WhatWeDoSectionSliceDefaultPrimary,
       WhatWeDoSectionSliceVariation,
