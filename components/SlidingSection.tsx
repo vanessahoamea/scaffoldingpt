@@ -2,6 +2,7 @@
 
 import { ReactNode } from "react";
 import { motion } from "framer-motion";
+import { clsx } from "clsx";
 
 interface SlidingSectionProps
 {
@@ -11,12 +12,9 @@ interface SlidingSectionProps
 };
 export default function SlidingSection(props: SlidingSectionProps)
 {
-    if(props.className === undefined)
-        props.className = "";
-    
     return (
         <motion.section
-            className={`px-8 sm:px-16 pt-20 ${props.className}`}
+            className={clsx("px-8 sm:px-16 pt-20", props.className)}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}

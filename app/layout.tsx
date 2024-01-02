@@ -1,11 +1,18 @@
+/* default imports */
 import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 
+/* fontawesome */
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import { config } from "@fortawesome/fontawesome-svg-core";
 config.autoAddCss = false;
 
+/* prismic */
+import { PrismicPreview } from "@prismicio/next";
+import { repositoryName } from "@/prismicio";
+
+/* components */
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
@@ -24,6 +31,7 @@ export default function RootLayout({ children }: { children: React.ReactNode })
                 <Navbar />
                 {children}
                 <Footer />
+                <PrismicPreview repositoryName={repositoryName} />
             </body>
         </html>
     );

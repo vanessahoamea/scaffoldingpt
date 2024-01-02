@@ -18,6 +18,10 @@ export function renderLink(node: any): { type: string, path: string, target?: st
                 return { type: "internal", path: "/hiring" };
             case "contact_page":
                 return { type: "internal", path: "/contact" };
+            case "terms_and_conditions_page":
+                return { type: "internal", path: "/terms-and-conditions" };
+            case "privacy_policy_page":
+                return { type: "internal", path: "/privacy-policy" };
             case "home_page":
             default:
                 return { type: "internal", path: "/" };

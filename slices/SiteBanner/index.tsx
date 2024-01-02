@@ -12,10 +12,7 @@ export type SiteBannerProps = SliceComponentProps<Content.SiteBannerSlice>;
  */
 const SiteBanner = ({ slice }: SiteBannerProps): JSX.Element => {
   return (
-    <section
-      data-slice-type={slice.slice_type}
-      data-slice-variation={slice.variation}
-    >
+    <>
     {
       slice.variation === "homeSiteBanner" ? (
         <div className="h-screen relative overflow-hidden bg-primary text-white text-center">
@@ -45,7 +42,7 @@ const SiteBanner = ({ slice }: SiteBannerProps): JSX.Element => {
         </div>
       )
     }
-    </section>
+    </>
   );
 };
 

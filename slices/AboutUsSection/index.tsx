@@ -26,44 +26,39 @@ const AboutUsSection = async ({ slice }: AboutUsSectionProps): Promise<JSX.Eleme
   );
 
   return (
-    <section
-      data-slice-type={slice.slice_type}
-      data-slice-variation={slice.variation}
-    >
-      <SlidingSection startPosition={-250} className="grid grid-cols-1 lg:grid-cols-expand-left gap-10 items-center">
-        <div>
-          <h2 className="text-primary text-3xl font-bold">{slice.primary.title}</h2>
-          <PrismicRichText field={slice.primary.content} components={{
-            hyperlink: ({ node, children }) => {
-              const linkData = renderLink(node);
-              return linkData.type === "internal" ? (
-                <Link href={linkData.path} className="font-bold text-primary">{children}</Link>
-              ) : (
-                <a href={linkData.path} className="font-bold text-primary">{children}</a>
-              );
-            },
-            paragraph: ({ children }) => (
-              <p className="mt-2">{children}</p>
-            )
-          }} />
+    <SlidingSection startPosition={-250} className="grid grid-cols-1 lg:grid-cols-expand-left gap-10 items-center">
+      <div>
+        <h2 className="text-primary text-3xl font-bold">{slice.primary.title}</h2>
+        <PrismicRichText field={slice.primary.content} components={{
+          hyperlink: ({ node, children }) => {
+            const linkData = renderLink(node);
+            return linkData.type === "internal" ? (
+              <Link href={linkData.path} className="font-bold text-primary">{children}</Link>
+            ) : (
+              <a href={linkData.path} className="font-bold text-primary">{children}</a>
+            );
+          },
+          paragraph: ({ children }) => (
+            <p className="mt-2">{children}</p>
+          )
+        }} />
+      </div>
+      <div className="flex justify-center">
+        <div className="flex gap-1 relative bg-white double-borders">
+        {
+          counters.map((item, index) => (
+            <NumberCounter
+              key={index}
+              count={item?.data.count}
+              text={item?.data.text}
+              icon={(index % 3 === 0) ? faCalendarDays : (index % 3 === 1) ? faSquareCheck : faLandmark}
+              unit={item?.data.unit}
+            />
+          ))
+        }
         </div>
-        <div className="flex justify-center">
-          <div className="flex gap-1 relative bg-white double-borders">
-          {
-            counters.map((item, index) => (
-              <NumberCounter
-                key={index}
-                count={item?.data.count}
-                text={item?.data.text}
-                icon={(index % 3 === 0) ? faCalendarDays : (index % 3 === 1) ? faSquareCheck : faLandmark}
-                unit={item?.data.unit}
-              />
-            ))
-          }
-          </div>
-        </div>
-      </SlidingSection>
-    </section>
+      </div>
+    </SlidingSection>
   );
 };
 

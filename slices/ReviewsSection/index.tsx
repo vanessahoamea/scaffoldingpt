@@ -23,22 +23,17 @@ const ReviewsSection = async ({ slice }: ReviewsSectionProps): Promise<JSX.Eleme
   );
 
   return (
-    <section
-      data-slice-type={slice.slice_type}
-      data-slice-variation={slice.variation}
-    >
-      <SlidingSection startPosition={-250} className="pb-20">
-        <h2 className="text-primary text-3xl font-bold">Ce spun clienții noștri</h2>
-        <div className="mt-2">
-          <ReviewSwiper data={reviews.map((item) => ({
-            name: item?.data.name,
-            job_title: item?.data.job_title,
-            rating: item?.data.rating,
-            content: item?.data.content
-          }))} />
-        </div>
-      </SlidingSection>
-    </section>
+    <SlidingSection startPosition={-250} className="pb-20">
+      <h2 className="text-primary text-3xl font-bold">Ce spun clienții noștri</h2>
+      <div className="mt-2">
+        <ReviewSwiper data={reviews.map((item) => ({
+          name: item?.data.name,
+          job_title: item?.data.job_title,
+          rating: item?.data.rating,
+          content: item?.data.content
+        }))} />
+      </div>
+    </SlidingSection>
   );
 };
 
