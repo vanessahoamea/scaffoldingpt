@@ -28,9 +28,7 @@ export default function Review(props: ReviewProps)
             </div>
 
             <PrismicRichText field={props.content} components={{
-                paragraph: ({ children }) => (
-                    <p className="mt-4">{children}</p>
-                )
+                paragraph: ({ children }) => <p className="mt-4">{children}</p>
             }} />
         </div>
     );

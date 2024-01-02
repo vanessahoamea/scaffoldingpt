@@ -1,0 +1,14 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"place_id": {
+				"__TYPE__": "FieldContent",
+				"value": "pine",
+				"type": "Text"
+			}
+		},
+		"items": []
+	}
+]

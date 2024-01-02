@@ -27,9 +27,7 @@ const WhatWeDoSection = ({ slice }: WhatWeDoSectionProps): JSX.Element => {
                 <a href={linkData.path} className="font-bold text-primary">{children}</a>
               );
             },
-            paragraph: ({ children }) => (
-              <p className="mt-2">{children}</p>
-            )
+            paragraph: ({ children }) => <p className="mt-2">{children}</p>
           }} />
       </div>
       <div className="w-fit mx-auto lg:-order-1 relative double-borders">

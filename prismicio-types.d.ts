@@ -4,6 +4,75 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
+type ContactPageDocumentDataSlicesSlice =
+  | MapSlice
+  | RequestOfferSectionSlice
+  | ContactUsSectionSlice
+  | SiteBannerSlice;
+
+/**
+ * Content for Contact Page documents
+ */
+interface ContactPageDocumentData {
+  /**
+   * Slice Zone field in *Contact Page*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact_page.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<ContactPageDocumentDataSlicesSlice> /**
+   * Meta Description field in *Contact Page*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: contact_page.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Contact Page*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact_page.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+
+  /**
+   * Meta Title field in *Contact Page*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: contact_page.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_title: prismic.KeyTextField;
+}
+
+/**
+ * Contact Page document from Prismic
+ *
+ * - **API ID**: `contact_page`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type ContactPageDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<ContactPageDocumentData>,
+    "contact_page",
+    Lang
+  >;
+
 /**
  * Content for Counter documents
  */
@@ -189,6 +258,7 @@ export type ReviewDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<ReviewDocumentData>, "review", Lang>;
 
 export type AllDocumentTypes =
+  | ContactPageDocument
   | CounterDocument
   | HomePageDocument
   | ReviewDocument;
@@ -261,6 +331,178 @@ type AboutUsSectionSliceVariation = AboutUsSectionSliceDefault;
 export type AboutUsSectionSlice = prismic.SharedSlice<
   "about_us_section",
   AboutUsSectionSliceVariation
+>;
+
+/**
+ * Primary content in *ContactUsSection → Primary*
+ */
+export interface ContactUsSectionSliceDefaultPrimary {
+  /**
+   * Title field in *ContactUsSection → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact_us_section.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Address field in *ContactUsSection → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact_us_section.primary.address
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  address: prismic.RichTextField;
+
+  /**
+   * E-mail field in *ContactUsSection → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact_us_section.primary.email
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  email: prismic.RichTextField;
+
+  /**
+   * Phone field in *ContactUsSection → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact_us_section.primary.phone
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  phone: prismic.RichTextField;
+}
+
+/**
+ * Default variation for ContactUsSection Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ContactUsSectionSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ContactUsSectionSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *ContactUsSection*
+ */
+type ContactUsSectionSliceVariation = ContactUsSectionSliceDefault;
+
+/**
+ * ContactUsSection Shared Slice
+ *
+ * - **API ID**: `contact_us_section`
+ * - **Description**: ContactUsSection
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ContactUsSectionSlice = prismic.SharedSlice<
+  "contact_us_section",
+  ContactUsSectionSliceVariation
+>;
+
+/**
+ * Primary content in *Map → Primary*
+ */
+export interface MapSliceDefaultPrimary {
+  /**
+   * Place ID field in *Map → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: map.primary.place_id
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  place_id: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for Map Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type MapSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<MapSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Map*
+ */
+type MapSliceVariation = MapSliceDefault;
+
+/**
+ * Map Shared Slice
+ *
+ * - **API ID**: `map`
+ * - **Description**: Map
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type MapSlice = prismic.SharedSlice<"map", MapSliceVariation>;
+
+/**
+ * Primary content in *RequestOfferSection → Primary*
+ */
+export interface RequestOfferSectionSliceDefaultPrimary {
+  /**
+   * Title field in *RequestOfferSection → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: request_offer_section.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Content field in *RequestOfferSection → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: request_offer_section.primary.content
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  content: prismic.RichTextField;
+}
+
+/**
+ * Default variation for RequestOfferSection Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type RequestOfferSectionSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<RequestOfferSectionSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *RequestOfferSection*
+ */
+type RequestOfferSectionSliceVariation = RequestOfferSectionSliceDefault;
+
+/**
+ * RequestOfferSection Shared Slice
+ *
+ * - **API ID**: `request_offer_section`
+ * - **Description**: RequestOfferSection
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type RequestOfferSectionSlice = prismic.SharedSlice<
+  "request_offer_section",
+  RequestOfferSectionSliceVariation
 >;
 
 /**
@@ -513,6 +755,9 @@ declare module "@prismicio/client" {
 
   namespace Content {
     export type {
+      ContactPageDocument,
+      ContactPageDocumentData,
+      ContactPageDocumentDataSlicesSlice,
       CounterDocument,
       CounterDocumentData,
       HomePageDocument,
@@ -526,6 +771,18 @@ declare module "@prismicio/client" {
       AboutUsSectionSliceDefaultItem,
       AboutUsSectionSliceVariation,
       AboutUsSectionSliceDefault,
+      ContactUsSectionSlice,
+      ContactUsSectionSliceDefaultPrimary,
+      ContactUsSectionSliceVariation,
+      ContactUsSectionSliceDefault,
+      MapSlice,
+      MapSliceDefaultPrimary,
+      MapSliceVariation,
+      MapSliceDefault,
+      RequestOfferSectionSlice,
+      RequestOfferSectionSliceDefaultPrimary,
+      RequestOfferSectionSliceVariation,
+      RequestOfferSectionSliceDefault,
       ReviewsSectionSlice,
       ReviewsSectionSliceDefaultPrimary,
       ReviewsSectionSliceDefaultItem,

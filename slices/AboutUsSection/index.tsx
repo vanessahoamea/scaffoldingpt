@@ -38,9 +38,7 @@ const AboutUsSection = async ({ slice }: AboutUsSectionProps): Promise<JSX.Eleme
               <a href={linkData.path} className="font-bold text-primary">{children}</a>
             );
           },
-          paragraph: ({ children }) => (
-            <p className="mt-2">{children}</p>
-          )
+          paragraph: ({ children }) => <p className="mt-2">{children}</p>
         }} />
       </div>
       <div className="flex justify-center">

@@ -1,0 +1,53 @@
+{
+  "id": "contact_us_section",
+  "type": "SharedSlice",
+  "name": "ContactUsSection",
+  "description": "ContactUsSection",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "Title",
+            "placeholder": ""
+          }
+        },
+        "address": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Address",
+            "placeholder": "",
+            "allowTargetBlank": false,
+            "multi": "paragraph"
+          }
+        },
+        "email": {
+          "type": "StructuredText",
+          "config": {
+            "label": "E-mail",
+            "placeholder": "",
+            "allowTargetBlank": false,
+            "multi": "paragraph"
+          }
+        },
+        "phone": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Phone",
+            "placeholder": "",
+            "allowTargetBlank": false,
+            "multi": "paragraph"
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}
