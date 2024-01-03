@@ -198,6 +198,75 @@ export type CounterDocument<Lang extends string = string> =
     Lang
   >;
 
+type HiringPageDocumentDataSlicesSlice =
+  | SiteBannerSlice
+  | ApplySectionSlice
+  | JobDetailsSectionSlice
+  | WeAreHiringSectionSlice;
+
+/**
+ * Content for Hiring Page documents
+ */
+interface HiringPageDocumentData {
+  /**
+   * Slice Zone field in *Hiring Page*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hiring_page.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<HiringPageDocumentDataSlicesSlice> /**
+   * Meta Description field in *Hiring Page*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: hiring_page.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Hiring Page*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hiring_page.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+
+  /**
+   * Meta Title field in *Hiring Page*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: hiring_page.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_title: prismic.KeyTextField;
+}
+
+/**
+ * Hiring Page document from Prismic
+ *
+ * - **API ID**: `hiring_page`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type HiringPageDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<HiringPageDocumentData>,
+    "hiring_page",
+    Lang
+  >;
+
 type HomePageDocumentDataSlicesSlice =
   | ReviewsSectionSlice
   | WhatWeDoSectionSlice
@@ -575,6 +644,7 @@ export type AllDocumentTypes =
   | AboutPageDocument
   | ContactPageDocument
   | CounterDocument
+  | HiringPageDocument
   | HomePageDocument
   | PortfolioImageDocument
   | ReviewDocument
@@ -711,6 +781,61 @@ type AboutUsSectionSliceVariation = AboutUsSectionSliceDefault;
 export type AboutUsSectionSlice = prismic.SharedSlice<
   "about_us_section",
   AboutUsSectionSliceVariation
+>;
+
+/**
+ * Primary content in *ApplySection → Primary*
+ */
+export interface ApplySectionSliceDefaultPrimary {
+  /**
+   * Title field in *ApplySection → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: apply_section.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Content field in *ApplySection → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: apply_section.primary.content
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  content: prismic.RichTextField;
+}
+
+/**
+ * Default variation for ApplySection Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ApplySectionSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ApplySectionSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *ApplySection*
+ */
+type ApplySectionSliceVariation = ApplySectionSliceDefault;
+
+/**
+ * ApplySection Shared Slice
+ *
+ * - **API ID**: `apply_section`
+ * - **Description**: ApplySection
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ApplySectionSlice = prismic.SharedSlice<
+  "apply_section",
+  ApplySectionSliceVariation
 >;
 
 /**
@@ -861,6 +986,81 @@ type ContactUsSectionSliceVariation = ContactUsSectionSliceDefault;
 export type ContactUsSectionSlice = prismic.SharedSlice<
   "contact_us_section",
   ContactUsSectionSliceVariation
+>;
+
+/**
+ * Primary content in *JobDetailsSection → Primary*
+ */
+export interface JobDetailsSectionSliceDefaultPrimary {
+  /**
+   * Job Description Title field in *JobDetailsSection → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: job_details_section.primary.job_description_title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  job_description_title: prismic.KeyTextField;
+
+  /**
+   * Job Description Content field in *JobDetailsSection → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: job_details_section.primary.job_description_content
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  job_description_content: prismic.RichTextField;
+
+  /**
+   * Job Requirements Title field in *JobDetailsSection → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: job_details_section.primary.job_requirements_title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  job_requirements_title: prismic.KeyTextField;
+
+  /**
+   * Job Requirements Content field in *JobDetailsSection → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: job_details_section.primary.job_requirements_content
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  job_requirements_content: prismic.RichTextField;
+}
+
+/**
+ * Default variation for JobDetailsSection Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type JobDetailsSectionSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<JobDetailsSectionSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *JobDetailsSection*
+ */
+type JobDetailsSectionSliceVariation = JobDetailsSectionSliceDefault;
+
+/**
+ * JobDetailsSection Shared Slice
+ *
+ * - **API ID**: `job_details_section`
+ * - **Description**: JobDetailsSection
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type JobDetailsSectionSlice = prismic.SharedSlice<
+  "job_details_section",
+  JobDetailsSectionSliceVariation
 >;
 
 /**
@@ -1433,6 +1633,61 @@ export type TextSectionSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *WeAreHiringSection → Primary*
+ */
+export interface WeAreHiringSectionSliceDefaultPrimary {
+  /**
+   * Title field in *WeAreHiringSection → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: we_are_hiring_section.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Content field in *WeAreHiringSection → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: we_are_hiring_section.primary.content
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  content: prismic.RichTextField;
+}
+
+/**
+ * Default variation for WeAreHiringSection Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type WeAreHiringSectionSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<WeAreHiringSectionSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *WeAreHiringSection*
+ */
+type WeAreHiringSectionSliceVariation = WeAreHiringSectionSliceDefault;
+
+/**
+ * WeAreHiringSection Shared Slice
+ *
+ * - **API ID**: `we_are_hiring_section`
+ * - **Description**: WeAreHiringSection
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type WeAreHiringSectionSlice = prismic.SharedSlice<
+  "we_are_hiring_section",
+  WeAreHiringSectionSliceVariation
+>;
+
+/**
  * Primary content in *WhatWeDoSection → Primary*
  */
 export interface WhatWeDoSectionSliceDefaultPrimary {
@@ -1515,6 +1770,9 @@ declare module "@prismicio/client" {
       ContactPageDocumentDataSlicesSlice,
       CounterDocument,
       CounterDocumentData,
+      HiringPageDocument,
+      HiringPageDocumentData,
+      HiringPageDocumentDataSlicesSlice,
       HomePageDocument,
       HomePageDocumentData,
       HomePageDocumentDataSlicesSlice,
@@ -1542,6 +1800,10 @@ declare module "@prismicio/client" {
       AboutUsSectionSliceDefaultItem,
       AboutUsSectionSliceVariation,
       AboutUsSectionSliceDefault,
+      ApplySectionSlice,
+      ApplySectionSliceDefaultPrimary,
+      ApplySectionSliceVariation,
+      ApplySectionSliceDefault,
       CallToActionSlice,
       CallToActionSliceDefaultPrimary,
       CallToActionSliceVariation,
@@ -1550,6 +1812,10 @@ declare module "@prismicio/client" {
       ContactUsSectionSliceDefaultPrimary,
       ContactUsSectionSliceVariation,
       ContactUsSectionSliceDefault,
+      JobDetailsSectionSlice,
+      JobDetailsSectionSliceDefaultPrimary,
+      JobDetailsSectionSliceVariation,
+      JobDetailsSectionSliceDefault,
       MapSlice,
       MapSliceDefaultPrimary,
       MapSliceVariation,
@@ -1591,6 +1857,10 @@ declare module "@prismicio/client" {
       TextSectionSliceDefaultPrimary,
       TextSectionSliceVariation,
       TextSectionSliceDefault,
+      WeAreHiringSectionSlice,
+      WeAreHiringSectionSliceDefaultPrimary,
+      WeAreHiringSectionSliceVariation,
+      WeAreHiringSectionSliceDefault,
       WhatWeDoSectionSlice,
       WhatWeDoSectionSliceDefaultPrimary,
       WhatWeDoSectionSliceVariation,

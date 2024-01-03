@@ -1,0 +1,51 @@
+{
+  "id": "job_details_section",
+  "type": "SharedSlice",
+  "name": "JobDetailsSection",
+  "description": "JobDetailsSection",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "job_description_title": {
+          "type": "Text",
+          "config": {
+            "label": "Job Description Title",
+            "placeholder": ""
+          }
+        },
+        "job_description_content": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Job Description Content",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,hyperlink,strong,em,list-item,o-list-item"
+          }
+        },
+        "job_requirements_title": {
+          "type": "Text",
+          "config": {
+            "label": "Job Requirements Title",
+            "placeholder": ""
+          }
+        },
+        "job_requirements_content": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Job Requirements Content",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,hyperlink,strong,em,list-item,o-list-item"
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}
