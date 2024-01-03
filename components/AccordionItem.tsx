@@ -1,16 +1,19 @@
 "use client";
 
+import Link from "next/link";
+import { PrismicRichText } from "@prismicio/react";
 import { useId, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleMinus, faCirclePlus } from "@fortawesome/free-solid-svg-icons";
 import { AnimatePresence, motion } from "framer-motion";
+import { renderLink } from "@/utils/helpers";
+import type { KeyTextField, RichTextField } from "@prismicio/client";
 
 interface AccordionItemProps
 {
-    id: number,
-    title: string,
-    content: string,
-    prices: string
+    title: KeyTextField | undefined,
+    content: RichTextField | undefined,
+    prices: RichTextField | undefined
 };
 export default function AccordionItem(props: AccordionItemProps)
 {
@@ -48,10 +51,30 @@ export default function AccordionItem(props: AccordionItemProps)
                     aria-labelledby={`accordion-button-${itemId}`}
                 >
                     <h4 className="mt-3 text-primary font-semibold">Descriere</h4>
-                    <p>{props.content}</p>
+                    <PrismicRichText field={props.content} components={{
+                        hyperlink: ({ node, children }) => {
+                            const linkData = renderLink(node);
+                            return linkData.type === "internal" ? (
+                                <Link href={linkData.path} className="font-bold text-primary">{children}</Link>
+                            ) : (
+                                <a href={linkData.path} className="font-bold text-primary">{children}</a>
+                            );
+                        },
+                        paragraph: ({ children }) => <p>{children}</p>
+                    }} />
 
                     <h4 className="mt-3 text-primary font-semibold">Tarife</h4>
-                    <p>{props.prices}</p>
+                    <PrismicRichText field={props.prices} components={{
+                        hyperlink: ({ node, children }) => {
+                            const linkData = renderLink(node);
+                            return linkData.type === "internal" ? (
+                                <Link href={linkData.path} className="font-bold text-primary">{children}</Link>
+                            ) : (
+                                <a href={linkData.path} className="font-bold text-primary">{children}</a>
+                            );
+                        },
+                        paragraph: ({ children }) => <p>{children}</p>
+                    }} />
                 </motion.div>
             }
             </AnimatePresence>

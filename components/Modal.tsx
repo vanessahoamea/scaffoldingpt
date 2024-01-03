@@ -3,14 +3,18 @@
 import { Dispatch, KeyboardEvent, SetStateAction, useEffect, useRef, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronLeft, faChevronRight, faXmark } from "@fortawesome/free-solid-svg-icons";
-import type { ImageData } from "@/utils/types";
 
+interface ImageData
+{
+    url: string | null | undefined,
+    description: string | null | undefined
+};
 interface ModalProps
 {
     image: ImageData | null,
     changeImageClick: (direction: number) => void,
     changeImageKeydown: (e: KeyboardEvent) => void,
-    setSelectedImage: Dispatch<SetStateAction<ImageData | null>>
+    setSelectedImage: Dispatch<SetStateAction<number | null>>
 };
 export default function Modal(props: ModalProps)
 {
@@ -82,8 +86,8 @@ export default function Modal(props: ModalProps)
             </button>
             <figure>
                 <img
-                    src={props.image.url}
-                    alt={props.image.description}
+                    src={props.image.url ?? ""}
+                    alt={props.image.description ?? ""}
                     className="max-h-screen absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
                 />
                 <figcaption className="absolute bottom-0 w-full p-2 bg-black bg-opacity-70 text-white text-center font-semibold">

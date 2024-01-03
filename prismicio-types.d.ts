@@ -268,6 +268,38 @@ export type HomePageDocument<Lang extends string = string> =
   >;
 
 /**
+ * Content for Portfolio Image documents
+ */
+interface PortfolioImageDocumentData {
+  /**
+   * Image field in *Portfolio Image*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: portfolio_image.image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+}
+
+/**
+ * Portfolio Image document from Prismic
+ *
+ * - **API ID**: `portfolio_image`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type PortfolioImageDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<PortfolioImageDocumentData>,
+    "portfolio_image",
+    Lang
+  >;
+
+/**
  * Content for Review documents
  */
 interface ReviewDocumentData {
@@ -327,6 +359,128 @@ interface ReviewDocumentData {
  */
 export type ReviewDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<ReviewDocumentData>, "review", Lang>;
+
+/**
+ * Content for Service documents
+ */
+interface ServiceDocumentData {
+  /**
+   * Title field in *Service*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: service.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Content field in *Service*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: service.content
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  content: prismic.RichTextField;
+
+  /**
+   * Prices field in *Service*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: service.prices
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  prices: prismic.RichTextField;
+}
+
+/**
+ * Service document from Prismic
+ *
+ * - **API ID**: `service`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type ServiceDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<ServiceDocumentData>,
+    "service",
+    Lang
+  >;
+
+type ServicesPageDocumentDataSlicesSlice =
+  | SiteBannerSlice
+  | PortfolioSectionSlice
+  | ServicesAndProductsSectionSlice;
+
+/**
+ * Content for Services Page documents
+ */
+interface ServicesPageDocumentData {
+  /**
+   * Slice Zone field in *Services Page*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: services_page.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<ServicesPageDocumentDataSlicesSlice> /**
+   * Meta Description field in *Services Page*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: services_page.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Services Page*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: services_page.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+
+  /**
+   * Meta Title field in *Services Page*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: services_page.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_title: prismic.KeyTextField;
+}
+
+/**
+ * Services Page document from Prismic
+ *
+ * - **API ID**: `services_page`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type ServicesPageDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<ServicesPageDocumentData>,
+    "services_page",
+    Lang
+  >;
 
 /**
  * Content for Tab documents
@@ -422,7 +576,10 @@ export type AllDocumentTypes =
   | ContactPageDocument
   | CounterDocument
   | HomePageDocument
+  | PortfolioImageDocument
   | ReviewDocument
+  | ServiceDocument
+  | ServicesPageDocument
   | TabDocument
   | ValueDocument;
 
@@ -809,6 +966,76 @@ export type OurValuesSectionSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *PortfolioSection → Primary*
+ */
+export interface PortfolioSectionSliceDefaultPrimary {
+  /**
+   * Title field in *PortfolioSection → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: portfolio_section.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Content field in *PortfolioSection → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: portfolio_section.primary.content
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  content: prismic.RichTextField;
+}
+
+/**
+ * Primary content in *PortfolioSection → Items*
+ */
+export interface PortfolioSectionSliceDefaultItem {
+  /**
+   * Image field in *PortfolioSection → Items*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: portfolio_section.items[].image
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  image: prismic.ContentRelationshipField<"portfolio_image">;
+}
+
+/**
+ * Default variation for PortfolioSection Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type PortfolioSectionSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<PortfolioSectionSliceDefaultPrimary>,
+  Simplify<PortfolioSectionSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *PortfolioSection*
+ */
+type PortfolioSectionSliceVariation = PortfolioSectionSliceDefault;
+
+/**
+ * PortfolioSection Shared Slice
+ *
+ * - **API ID**: `portfolio_section`
+ * - **Description**: PortfolioSection
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type PortfolioSectionSlice = prismic.SharedSlice<
+  "portfolio_section",
+  PortfolioSectionSliceVariation
+>;
+
+/**
  * Primary content in *RequestOfferSection → Primary*
  */
 export interface RequestOfferSectionSliceDefaultPrimary {
@@ -951,6 +1178,88 @@ type SeparatorSliceVariation = SeparatorSliceDefault;
 export type SeparatorSlice = prismic.SharedSlice<
   "separator",
   SeparatorSliceVariation
+>;
+
+/**
+ * Primary content in *ServicesAndProductsSection → Primary*
+ */
+export interface ServicesAndProductsSectionSliceDefaultPrimary {
+  /**
+   * Title field in *ServicesAndProductsSection → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: services_and_products_section.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Top Content field in *ServicesAndProductsSection → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: services_and_products_section.primary.top_content
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  top_content: prismic.RichTextField;
+
+  /**
+   * Bottom Content field in *ServicesAndProductsSection → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: services_and_products_section.primary.bottom_content
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  bottom_content: prismic.RichTextField;
+}
+
+/**
+ * Primary content in *ServicesAndProductsSection → Items*
+ */
+export interface ServicesAndProductsSectionSliceDefaultItem {
+  /**
+   * Service field in *ServicesAndProductsSection → Items*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: services_and_products_section.items[].service
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  service: prismic.ContentRelationshipField<"service">;
+}
+
+/**
+ * Default variation for ServicesAndProductsSection Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ServicesAndProductsSectionSliceDefault =
+  prismic.SharedSliceVariation<
+    "default",
+    Simplify<ServicesAndProductsSectionSliceDefaultPrimary>,
+    Simplify<ServicesAndProductsSectionSliceDefaultItem>
+  >;
+
+/**
+ * Slice variation for *ServicesAndProductsSection*
+ */
+type ServicesAndProductsSectionSliceVariation =
+  ServicesAndProductsSectionSliceDefault;
+
+/**
+ * ServicesAndProductsSection Shared Slice
+ *
+ * - **API ID**: `services_and_products_section`
+ * - **Description**: ServicesAndProductsSection
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ServicesAndProductsSectionSlice = prismic.SharedSlice<
+  "services_and_products_section",
+  ServicesAndProductsSectionSliceVariation
 >;
 
 /**
@@ -1209,8 +1518,15 @@ declare module "@prismicio/client" {
       HomePageDocument,
       HomePageDocumentData,
       HomePageDocumentDataSlicesSlice,
+      PortfolioImageDocument,
+      PortfolioImageDocumentData,
       ReviewDocument,
       ReviewDocumentData,
+      ServiceDocument,
+      ServiceDocumentData,
+      ServicesPageDocument,
+      ServicesPageDocumentData,
+      ServicesPageDocumentDataSlicesSlice,
       TabDocument,
       TabDocumentData,
       ValueDocument,
@@ -1243,6 +1559,11 @@ declare module "@prismicio/client" {
       OurValuesSectionSliceDefaultItem,
       OurValuesSectionSliceVariation,
       OurValuesSectionSliceDefault,
+      PortfolioSectionSlice,
+      PortfolioSectionSliceDefaultPrimary,
+      PortfolioSectionSliceDefaultItem,
+      PortfolioSectionSliceVariation,
+      PortfolioSectionSliceDefault,
       RequestOfferSectionSlice,
       RequestOfferSectionSliceDefaultPrimary,
       RequestOfferSectionSliceVariation,
@@ -1255,6 +1576,11 @@ declare module "@prismicio/client" {
       SeparatorSlice,
       SeparatorSliceVariation,
       SeparatorSliceDefault,
+      ServicesAndProductsSectionSlice,
+      ServicesAndProductsSectionSliceDefaultPrimary,
+      ServicesAndProductsSectionSliceDefaultItem,
+      ServicesAndProductsSectionSliceVariation,
+      ServicesAndProductsSectionSliceDefault,
       SiteBannerSlice,
       SiteBannerSliceDefaultPrimary,
       SiteBannerSliceHomeSiteBannerPrimary,

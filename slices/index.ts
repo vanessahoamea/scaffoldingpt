@@ -9,9 +9,13 @@ export const components = {
   contact_us_section: dynamic(() => import("./ContactUsSection")),
   map: dynamic(() => import("./Map")),
   our_values_section: dynamic(() => import("./OurValuesSection")),
+  portfolio_section: dynamic(() => import("./PortfolioSection")),
   request_offer_section: dynamic(() => import("./RequestOfferSection")),
   reviews_section: dynamic(() => import("./ReviewsSection")),
   separator: dynamic(() => import("./Separator")),
+  services_and_products_section: dynamic(
+    () => import("./ServicesAndProductsSection"),
+  ),
   site_banner: dynamic(() => import("./SiteBanner")),
   text_section: dynamic(() => import("./AcknowledgementsSection")),
   what_we_do_section: dynamic(() => import("./WhatWeDoSection")),
