@@ -5,11 +5,11 @@ import type * as prismic from "@prismicio/client";
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
 type AboutPageDocumentDataSlicesSlice =
+  | AcknowledgementsSectionSlice
   | SiteBannerSlice
   | AboutTabsSlice
   | OurValuesSectionSlice
   | SeparatorSlice
-  | TextSectionSlice
   | CallToActionSlice;
 
 /**
@@ -368,6 +368,73 @@ export type PortfolioImageDocument<Lang extends string = string> =
     Lang
   >;
 
+type PrivacyPolicyPageDocumentDataSlicesSlice =
+  | SiteBannerSlice
+  | TextSectionSlice;
+
+/**
+ * Content for Privacy Policy Page documents
+ */
+interface PrivacyPolicyPageDocumentData {
+  /**
+   * Slice Zone field in *Privacy Policy Page*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: privacy_policy_page.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<PrivacyPolicyPageDocumentDataSlicesSlice> /**
+   * Meta Description field in *Privacy Policy Page*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: privacy_policy_page.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Privacy Policy Page*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: privacy_policy_page.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+
+  /**
+   * Meta Title field in *Privacy Policy Page*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: privacy_policy_page.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_title: prismic.KeyTextField;
+}
+
+/**
+ * Privacy Policy Page document from Prismic
+ *
+ * - **API ID**: `privacy_policy_page`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type PrivacyPolicyPageDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<PrivacyPolicyPageDocumentData>,
+    "privacy_policy_page",
+    Lang
+  >;
+
 /**
  * Content for Review documents
  */
@@ -590,6 +657,73 @@ interface TabDocumentData {
 export type TabDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<TabDocumentData>, "tab", Lang>;
 
+type TermsAndConditionsPageDocumentDataSlicesSlice =
+  | SiteBannerSlice
+  | TextSectionSlice;
+
+/**
+ * Content for Terms and Conditions Page documents
+ */
+interface TermsAndConditionsPageDocumentData {
+  /**
+   * Slice Zone field in *Terms and Conditions Page*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: terms_and_conditions_page.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<TermsAndConditionsPageDocumentDataSlicesSlice> /**
+   * Meta Description field in *Terms and Conditions Page*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: terms_and_conditions_page.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Terms and Conditions Page*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: terms_and_conditions_page.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+
+  /**
+   * Meta Title field in *Terms and Conditions Page*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: terms_and_conditions_page.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_title: prismic.KeyTextField;
+}
+
+/**
+ * Terms and Conditions Page document from Prismic
+ *
+ * - **API ID**: `terms_and_conditions_page`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type TermsAndConditionsPageDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<TermsAndConditionsPageDocumentData>,
+    "terms_and_conditions_page",
+    Lang
+  >;
+
 /**
  * Content for Value documents
  */
@@ -647,10 +781,12 @@ export type AllDocumentTypes =
   | HiringPageDocument
   | HomePageDocument
   | PortfolioImageDocument
+  | PrivacyPolicyPageDocument
   | ReviewDocument
   | ServiceDocument
   | ServicesPageDocument
   | TabDocument
+  | TermsAndConditionsPageDocument
   | ValueDocument;
 
 /**
@@ -781,6 +917,62 @@ type AboutUsSectionSliceVariation = AboutUsSectionSliceDefault;
 export type AboutUsSectionSlice = prismic.SharedSlice<
   "about_us_section",
   AboutUsSectionSliceVariation
+>;
+
+/**
+ * Primary content in *AcknowledgementsSection → Primary*
+ */
+export interface AcknowledgementsSectionSliceDefaultPrimary {
+  /**
+   * Title field in *AcknowledgementsSection → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: acknowledgements_section.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Content field in *AcknowledgementsSection → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: acknowledgements_section.primary.content
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  content: prismic.RichTextField;
+}
+
+/**
+ * Default variation for AcknowledgementsSection Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type AcknowledgementsSectionSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<AcknowledgementsSectionSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *AcknowledgementsSection*
+ */
+type AcknowledgementsSectionSliceVariation =
+  AcknowledgementsSectionSliceDefault;
+
+/**
+ * AcknowledgementsSection Shared Slice
+ *
+ * - **API ID**: `acknowledgements_section`
+ * - **Description**: AcknowledgementsSection
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type AcknowledgementsSectionSlice = prismic.SharedSlice<
+  "acknowledgements_section",
+  AcknowledgementsSectionSliceVariation
 >;
 
 /**
@@ -1578,11 +1770,11 @@ export type SiteBannerSlice = prismic.SharedSlice<
 >;
 
 /**
- * Primary content in *AcknowledgementsSection → Primary*
+ * Primary content in *TextSection → Primary*
  */
 export interface TextSectionSliceDefaultPrimary {
   /**
-   * Title field in *AcknowledgementsSection → Primary*
+   * Title field in *TextSection → Primary*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
@@ -1592,7 +1784,7 @@ export interface TextSectionSliceDefaultPrimary {
   title: prismic.KeyTextField;
 
   /**
-   * Content field in *AcknowledgementsSection → Primary*
+   * Content field in *TextSection → Primary*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
@@ -1600,10 +1792,21 @@ export interface TextSectionSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   content: prismic.RichTextField;
+
+  /**
+   * Last field in *TextSection → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: text_section.primary.last
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  last: prismic.BooleanField;
 }
 
 /**
- * Default variation for AcknowledgementsSection Slice
+ * Default variation for TextSection Slice
  *
  * - **API ID**: `default`
  * - **Description**: Default
@@ -1616,12 +1819,12 @@ export type TextSectionSliceDefault = prismic.SharedSliceVariation<
 >;
 
 /**
- * Slice variation for *AcknowledgementsSection*
+ * Slice variation for *TextSection*
  */
 type TextSectionSliceVariation = TextSectionSliceDefault;
 
 /**
- * AcknowledgementsSection Shared Slice
+ * TextSection Shared Slice
  *
  * - **API ID**: `text_section`
  * - **Description**: TextSection
@@ -1778,6 +1981,9 @@ declare module "@prismicio/client" {
       HomePageDocumentDataSlicesSlice,
       PortfolioImageDocument,
       PortfolioImageDocumentData,
+      PrivacyPolicyPageDocument,
+      PrivacyPolicyPageDocumentData,
+      PrivacyPolicyPageDocumentDataSlicesSlice,
       ReviewDocument,
       ReviewDocumentData,
       ServiceDocument,
@@ -1787,6 +1993,9 @@ declare module "@prismicio/client" {
       ServicesPageDocumentDataSlicesSlice,
       TabDocument,
       TabDocumentData,
+      TermsAndConditionsPageDocument,
+      TermsAndConditionsPageDocumentData,
+      TermsAndConditionsPageDocumentDataSlicesSlice,
       ValueDocument,
       ValueDocumentData,
       AllDocumentTypes,
@@ -1800,6 +2009,10 @@ declare module "@prismicio/client" {
       AboutUsSectionSliceDefaultItem,
       AboutUsSectionSliceVariation,
       AboutUsSectionSliceDefault,
+      AcknowledgementsSectionSlice,
+      AcknowledgementsSectionSliceDefaultPrimary,
+      AcknowledgementsSectionSliceVariation,
+      AcknowledgementsSectionSliceDefault,
       ApplySectionSlice,
       ApplySectionSliceDefaultPrimary,
       ApplySectionSliceVariation,

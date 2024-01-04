@@ -1,8 +1,8 @@
 {
-  "id": "acknowledgements_section",
+  "id": "text_section",
   "type": "SharedSlice",
-  "name": "AcknowledgementsSection",
-  "description": "AcknowledgementsSection",
+  "name": "TextSection",
+  "description": "TextSection",
   "variations": [
     {
       "id": "default",
@@ -25,7 +25,16 @@
             "label": "Content",
             "placeholder": "",
             "allowTargetBlank": true,
-            "multi": "paragraph,strong,em,hyperlink"
+            "multi": "paragraph,strong,em,hyperlink,list-item,o-list-item"
+          }
+        },
+        "last": {
+          "type": "Boolean",
+          "config": {
+            "label": "Last",
+            "default_value": false,
+            "placeholder_true": "true",
+            "placeholder_false": "false"
           }
         }
       },

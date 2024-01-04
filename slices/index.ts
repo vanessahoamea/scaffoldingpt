@@ -5,6 +5,7 @@ import dynamic from "next/dynamic";
 export const components = {
   about_tabs: dynamic(() => import("./AboutTabs")),
   about_us_section: dynamic(() => import("./AboutUsSection")),
+  acknowledgements_section: dynamic(() => import("./AcknowledgementsSection")),
   apply_section: dynamic(() => import("./ApplySection")),
   call_to_action: dynamic(() => import("./CallToAction")),
   contact_us_section: dynamic(() => import("./ContactUsSection")),
@@ -19,7 +20,7 @@ export const components = {
     () => import("./ServicesAndProductsSection"),
   ),
   site_banner: dynamic(() => import("./SiteBanner")),
-  text_section: dynamic(() => import("./AcknowledgementsSection")),
+  text_section: dynamic(() => import("./TextSection")),
   we_are_hiring_section: dynamic(() => import("./WeAreHiringSection")),
   what_we_do_section: dynamic(() => import("./WhatWeDoSection")),
 };

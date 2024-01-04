@@ -4,14 +4,17 @@ import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
 import { renderLink } from "@/utils/helpers";
 
 /**
- * Props for `TextSection`.
+ * Props for `AcknowledgementsSection`.
  */
-export type TextSectionProps = SliceComponentProps<Content.TextSectionSlice>;
+export type AcknowledgementsSectionProps =
+  SliceComponentProps<Content.AcknowledgementsSectionSlice>;
 
 /**
- * Component for "TextSection" Slices.
+ * Component for "AcknowledgementsSection" Slices.
  */
-const TextSection = ({ slice }: TextSectionProps): JSX.Element => {
+const AcknowledgementsSection = ({
+  slice,
+}: AcknowledgementsSectionProps): JSX.Element => {
   return (
     <section className="px-8 md:px-16 pt-20 pb-20">
       <h2 className="text-primary text-3xl text-center font-bold">{slice.primary.title}</h2>
@@ -19,9 +22,9 @@ const TextSection = ({ slice }: TextSectionProps): JSX.Element => {
         hyperlink: ({ node, children }) => {
           const linkData = renderLink(node);
           return linkData.type === "internal" ? (
-            <Link href={linkData.path} className="font-bold text-primary">{children}</Link>
+            <Link href={linkData.path} className="font-semibold text-primary">{children}</Link>
           ) : (
-            <a href={linkData.path} className="font-bold text-primary">{children}</a>
+            <a href={linkData.path} className="font-semibold text-primary">{children}</a>
           );
         },
         paragraph: ({ children }) => <p className="mt-2 text-center">{children}</p>
@@ -30,4 +33,4 @@ const TextSection = ({ slice }: TextSectionProps): JSX.Element => {
   );
 };
 
-export default TextSection;
+export default AcknowledgementsSection;

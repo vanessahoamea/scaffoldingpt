@@ -20,9 +20,9 @@ const ApplySection = ({ slice }: ApplySectionProps): JSX.Element => {
         hyperlink: ({ node, children }) => {
           const linkData = renderLink(node);
           return linkData.type === "internal" ? (
-            <Link href={linkData.path} className="font-bold text-primary">{children}</Link>
+            <Link href={linkData.path} className="font-semibold text-primary">{children}</Link>
           ) : (
-            <a href={linkData.path} className="font-bold text-primary">{children}</a>
+            <a href={linkData.path} className="font-semibold text-primary">{children}</a>
           );
         },
         paragraph: ({ children }) => <p className="mt-2">{children}</p>

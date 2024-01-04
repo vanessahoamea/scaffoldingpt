@@ -1,24 +1,20 @@
 import Link from "next/link";
-import ContactForm from "@/components/ContactForm";
 import { Content } from "@prismicio/client";
 import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
+import { clsx } from "clsx";
 import { renderLink } from "@/utils/helpers";
 
 /**
- * Props for `RequestOfferSection`.
+ * Props for `TextSection`.
  */
-export type RequestOfferSectionProps =
-  SliceComponentProps<Content.RequestOfferSectionSlice>;
+export type TextSectionProps = SliceComponentProps<Content.TextSectionSlice>;
 
 /**
- * Component for "RequestOfferSection" Slices.
+ * Component for "TextSection" Slices.
  */
-const RequestOfferSection = ({
-  slice,
-}: RequestOfferSectionProps): JSX.Element => {
+const TextSection = ({ slice }: TextSectionProps): JSX.Element => {
   return (
-    <section className="px-8 md:px-16 pt-20 pb-20 flex flex-col gap-5 md:flex-row md:gap-12">
-      <div className="basis-1/2">
+    <section className={clsx("px-8 md:px-16 pt-20", slice.primary.last && "pb-20")}>
         <h2 className="text-primary text-3xl font-bold">{slice.primary.title}</h2>
         <PrismicRichText field={slice.primary.content} components={{
           hyperlink: ({ node, children }) => {
@@ -29,12 +25,12 @@ const RequestOfferSection = ({
               <a href={linkData.path} className="font-semibold text-primary">{children}</a>
             );
           },
+          list: ({ children }) => <ul className="custom-list mt-2">{children}</ul>,
+          oList: ({ children }) => <ol className="custom-list mt-2">{children}</ol>,
           paragraph: ({ children }) => <p className="mt-2">{children}</p>
         }} />
-      </div>
-      <ContactForm />
     </section>
   );
 };
 
-export default RequestOfferSection;
+export default TextSection;
