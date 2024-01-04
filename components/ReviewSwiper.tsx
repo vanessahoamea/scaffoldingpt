@@ -3,19 +3,12 @@
 import Review from "./Review";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { A11y, Autoplay, Keyboard, Pagination } from "swiper/modules";
-import type { KeyTextField, NumberField, RichTextField } from "@prismicio/client";
+import type { ReviewData } from "@/utils/types";
 import "swiper/css";
 import "swiper/css/a11y";
 import "swiper/css/keyboard";
 import "swiper/css/pagination";
 
-interface ReviewData
-{
-    name: KeyTextField | undefined,
-    job_title: KeyTextField | undefined,
-    rating: NumberField | undefined,
-    content: RichTextField | undefined
-};
 interface ReviewSwiperProps
 {
     data: ReviewData[]

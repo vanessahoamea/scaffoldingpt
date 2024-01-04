@@ -1,8 +1,9 @@
+import { KeyTextField, NumberField, RichTextField } from "@prismicio/client";
+
 interface AboutData
 {
-    id: number,
-    title: string,
-    content: string
+    title: KeyTextField | undefined,
+    content: KeyTextField | undefined
 };
 
 interface ApplyInputs
@@ -27,26 +28,16 @@ interface ContactInputs
 
 interface ImageData
 {
-    id: number,
-    url: string,
-    description: string
+    url: string | null | undefined,
+    description: string | null | undefined
 };
 
 interface ReviewData
 {
-    id: number,
-    name: string,
-    job_title: string,
-    rating: number,
-    content: string
+    name: KeyTextField | undefined,
+    job_title: KeyTextField | undefined,
+    rating: NumberField | undefined,
+    content: RichTextField | undefined
 }
 
-interface ServiceData
-{
-    id: number,
-    title: string,
-    content: string,
-    prices: string
-};
-
-export type { AboutData, ApplyInputs, ContactInputs, ImageData, ReviewData, ServiceData };
+export type { AboutData, ApplyInputs, ContactInputs, ImageData, ReviewData };

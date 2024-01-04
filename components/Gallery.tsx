@@ -2,12 +2,8 @@
 
 import { KeyboardEvent, useEffect, useState } from "react";
 import Modal from "./Modal";
+import type { ImageData } from "@/utils/types";
 
-interface ImageData
-{
-    url: string | null | undefined,
-    description: string | null | undefined
-};
 interface GalleryProps
 {
     data: ImageData[]

@@ -1,13 +1,8 @@
 "use client";
 
 import { KeyboardEvent, useEffect, useState } from "react";
-import type { KeyTextField } from "@prismicio/client";
+import type { AboutData } from "@/utils/types";
 
-interface AboutData
-{
-    title: KeyTextField | undefined,
-    content: KeyTextField | undefined
-};
 interface TabsProps
 {
     data: AboutData[]
