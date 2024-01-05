@@ -1,40 +1,35 @@
 import Link from "next/link";
+import HamburgerMenu from "./HamburgerMenu";
+import { createClient } from "@/prismicio";
+import { PrismicNextLink } from "@prismicio/next";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebookSquare, faWhatsappSquare } from "@fortawesome/free-brands-svg-icons";
-import HamburgerMenu from "./HamburgerMenu";
 
-export default function Navbar()
+export default async function Navbar()
 {
+    const client = createClient();
+    const settings = await client.getSingle("settings");
+
     return (
         <header className="bg-white mx-auto">
             <nav className="px-8 py-3 flex justify-between items-center">
                 <Link href="/">
-                    <img src="/logo.png" alt="Site logo" className="w-20" />
+                    <img src={settings.data.site_logo.url ?? "/logo.png"} alt="Site logo" className="w-20" />
                 </Link>
 
                 <div className="hidden md:flex items-center gap-5">
-                    <Link className="web-menu-link" href="/">Acasă</Link>
-                    <Link className="web-menu-link" href="/about">Despre noi</Link>
-                    <Link className="web-menu-link" href="/services">Servicii</Link>
-                    <Link className="web-menu-link" href="/hiring">Angajări</Link>
-                    <Link className="web-menu-link" href="/contact">Contact</Link>
-                    <div>
-                        <a
-                            title="Facebook"
-                            className="social-media-link"
-                            href="https://www.facebook.com/scaffolding.professionalteam"
-                            target="_blank"
-                        >
+                    {
+                        settings.data.header_links.map((item, index) => (
+                            <PrismicNextLink key={index} field={item.link} className="web-menu-link">{item.text}</PrismicNextLink>
+                        ))
+                    }
+                    <div role="group">
+                        <PrismicNextLink field={settings.data.facebook_link} title="Facebook" className="social-media-link">
                             <FontAwesomeIcon icon={faFacebookSquare} />
-                        </a>
-                        <a
-                            title="WhatsApp"
-                            className="social-media-link"
-                            href="https://wa.me/40766453808"
-                            target="_blank"
-                        >
+                        </PrismicNextLink>
+                        <PrismicNextLink field={settings.data.whatsapp_link} title="WhatsApp" className="social-media-link">
                             <FontAwesomeIcon icon={faWhatsappSquare} />
-                        </a>
+                        </PrismicNextLink>
                     </div>
                 </div>
 
@@ -44,11 +39,11 @@ export default function Navbar()
             </nav>
 
             <nav className="mobile-menu hidden md:hidden">
-                <Link href="/">Acasă</Link>
-                <Link href="/about">Despre noi</Link>
-                <Link href="/services">Servicii</Link>
-                <Link href="/hiring">Angajări</Link>
-                <Link href="/contact">Contact</Link>
+            {
+                settings.data.header_links.map((item, index) => (
+                    <PrismicNextLink key={index} field={item.link}>{item.text}</PrismicNextLink>
+                ))
+            }
             </nav>
         </header>
     );
