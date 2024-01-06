@@ -1,3 +1,4 @@
+import Image from "next/image";
 import PrimaryButton from "@/components/PrimaryButton";
 import { Content } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
@@ -13,10 +14,12 @@ export type CallToActionProps = SliceComponentProps<Content.CallToActionSlice>;
 const CallToAction = ({ slice }: CallToActionProps): JSX.Element => {
   return (
     <div className="h-72 sm:h-64 relative overflow-hidden text-white text-center">
-      <img
+      <Image
         src={slice.primary.image.url ?? "/cta.jpg"}
+        width={0}
+        height={288}
         alt=""
-        className="w-full h-72 sm:h-64 object-cover brightness-45 select-none pointer-events-none"
+        className="w-full sm:h-64 object-cover brightness-45 select-none pointer-events-none"
       />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
         <h1 className="w-screen px-8 text-xl md:text-3xl font-bold">{slice.primary.title}</h1>

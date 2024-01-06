@@ -1,6 +1,7 @@
 "use client";
 
 import { KeyboardEvent, useEffect, useState } from "react";
+import Image from "next/image";
 import Modal from "./Modal";
 import type { ImageData } from "@/utils/types";
 
@@ -86,9 +87,11 @@ export default function Gallery(props: GalleryProps)
                     onClick={() => setSelectedImage(index)}
                     onKeyDown={(e) => { if(e.key === "Enter") setSelectedImage(index) }}
                 >
-                    <img
+                    <Image
                         src={image.url ?? ""}
                         alt={image.description ?? ""}
+                        width={500}
+                        height={500}
                         className="w-full aspect-square object-cover transition-[filter] duration-200 ease-in"
                     />
                 </div>

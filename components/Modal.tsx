@@ -1,6 +1,7 @@
 "use client";
 
 import { Dispatch, KeyboardEvent, SetStateAction, useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronLeft, faChevronRight, faXmark } from "@fortawesome/free-solid-svg-icons";
 import type { ImageData } from "@/utils/types";
@@ -81,10 +82,12 @@ export default function Modal(props: ModalProps)
                 <FontAwesomeIcon icon={faChevronRight} />
             </button>
             <figure>
-                <img
+                <Image
                     src={props.image.url ?? ""}
                     alt={props.image.description ?? ""}
-                    className="max-h-screen absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+                    width={0}
+                    height={0}
+                    className="max-h-screen w-auto absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
                 />
                 <figcaption className="absolute bottom-0 w-full p-2 bg-black bg-opacity-70 text-white text-center font-semibold">
                     {props.image.description}

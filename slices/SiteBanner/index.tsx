@@ -1,6 +1,7 @@
+import Image from "next/image";
+import PrimaryButton from "@/components/PrimaryButton";
 import { Content } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
-import PrimaryButton from "@/components/PrimaryButton";
 
 /**
  * Props for `SiteBanner`.
@@ -16,9 +17,11 @@ const SiteBanner = ({ slice }: SiteBannerProps): JSX.Element => {
     {
       slice.variation === "homeSiteBanner" ? (
         <div className="h-screen relative overflow-hidden bg-primary text-white text-center">
-          <img
+          <Image
             src={slice.primary.image.url ?? "/banner.jpg"}
             alt="Site banner"
+            width={0}
+            height={0}
             className="w-full h-screen object-cover brightness-45 select-none pointer-events-none"
           />
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
@@ -31,9 +34,11 @@ const SiteBanner = ({ slice }: SiteBannerProps): JSX.Element => {
         </div>
       ) : (
         <div className="h-40 relative overflow-hidden bg-primary text-white text-center">
-          <img
+          <Image
             src={slice.primary.image.url ?? "/banner.jpg"}
             alt="Site banner"
+            width={0}
+            height={0}
             className="w-full h-40 object-cover brightness-45 select-none pointer-events-none"
           />
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">

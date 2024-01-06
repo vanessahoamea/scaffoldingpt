@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import HamburgerMenu from "./HamburgerMenu";
 import { createClient } from "@/prismicio";
@@ -14,7 +15,12 @@ export default async function Navbar()
         <header className="bg-white mx-auto">
             <nav className="px-8 py-3 flex justify-between items-center">
                 <Link href="/">
-                    <img src={settings.data.site_logo.url ?? "/logo.png"} alt="Site logo" className="w-20" />
+                    <Image
+                        src={settings.data.site_logo.url ?? "/logo.png"}
+                        width={80}
+                        height={80}
+                        alt="Site logo"
+                    />
                 </Link>
 
                 <div className="hidden md:flex items-center gap-5">

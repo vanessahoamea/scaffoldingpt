@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { createClient } from "@/prismicio";
 import { PrismicNextLink } from "@prismicio/next";
@@ -17,7 +18,12 @@ export default async function Footer()
             <main className="px-8 py-4 flex flex-col items-start justify-start gap-8 md:flex-row md:justify-between md:gap-20">
                 <section className="basis-2/4">
                     <div className="flex items-center gap-5">
-                        <img src={settings.data.site_logo.url ?? "/logo.png"} alt="Company logo" className="w-20" />
+                        <Image
+                            src={settings.data.site_logo.url ?? "/logo.png"}
+                            alt="Company logo"
+                            width={80}
+                            height={80}
+                        />
                         <p>{settings.data.site_description}</p>
                     </div>
                     <div className="mt-5 flex justify-between items-center gap-1 flex-wrap">
@@ -29,10 +35,11 @@ export default async function Footer()
                                 <FontAwesomeIcon icon={faWhatsappSquare} />
                             </PrismicNextLink>
                         </div>
-                        <img
+                        <Image
                             src="/certification.png"
                             alt="Ministry of Labor and Social Protection logo"
-                            className="w-48"
+                            width={192}
+                            height={45.97}
                         />
                     </div>
                 </section>

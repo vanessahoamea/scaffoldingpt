@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import SlidingSection from "@/components/SlidingSection";
 import { Content } from "@prismicio/client";
@@ -31,10 +32,11 @@ const WhatWeDoSection = ({ slice }: WhatWeDoSectionProps): JSX.Element => {
           }} />
       </div>
       <div className="w-fit mx-auto lg:-order-1 relative double-borders">
-        <img
+        <Image
           src={slice.primary.image.url ?? "/main.png"}
           alt="Informații de contact"
-          className="w-[500px]"
+          width={500}
+          height={500}
         />
       </div>
     </SlidingSection>
