@@ -1,0 +1,37 @@
+{
+  "id": "our_values_section",
+  "type": "SharedSlice",
+  "name": "OurValuesSection",
+  "description": "OurValuesSection",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "Title",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {
+        "value": {
+          "type": "Link",
+          "config": {
+            "label": "Value",
+            "select": "document",
+            "customtypes": [
+              "value"
+            ]
+          }
+        }
+      }
+    }
+  ]
+}

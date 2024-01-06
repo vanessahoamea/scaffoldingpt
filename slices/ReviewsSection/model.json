@@ -1,0 +1,37 @@
+{
+  "id": "reviews_section",
+  "type": "SharedSlice",
+  "name": "ReviewsSection",
+  "description": "ReviewsSection",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "Title",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {
+        "review": {
+          "type": "Link",
+          "config": {
+            "label": "Review",
+            "select": "document",
+            "customtypes": [
+              "review"
+            ]
+          }
+        }
+      }
+    }
+  ]
+}

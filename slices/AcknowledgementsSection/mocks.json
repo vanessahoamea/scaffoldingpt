@@ -1,0 +1,25 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"title": {
+				"__TYPE__": "FieldContent",
+				"value": "mile",
+				"type": "Text"
+			},
+			"content": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Reprehenderit aute excepteur exercitation. Laborum irure exercitation esse anim laboris ea cillum qui ea ad tempor Lorem qui amet."
+						}
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]

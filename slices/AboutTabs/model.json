@@ -1,0 +1,37 @@
+{
+  "id": "about_tabs",
+  "type": "SharedSlice",
+  "name": "AboutTabs",
+  "description": "AboutTabs",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "Title",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {
+        "tab": {
+          "type": "Link",
+          "config": {
+            "label": "Tab",
+            "select": "document",
+            "customtypes": [
+              "tab"
+            ]
+          }
+        }
+      }
+    }
+  ]
+}

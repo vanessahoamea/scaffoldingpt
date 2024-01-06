@@ -1,0 +1,31 @@
+{
+  "id": "tab",
+  "label": "Tab",
+  "format": "custom",
+  "repeatable": true,
+  "status": true,
+  "json": {
+    "Main": {
+      "uid": {
+        "config": {
+          "label": "UID"
+        },
+        "type": "UID"
+      },
+      "title": {
+        "type": "Text",
+        "config": {
+          "label": "Title",
+          "placeholder": ""
+        }
+      },
+      "content": {
+        "type": "Text",
+        "config": {
+          "label": "Content",
+          "placeholder": ""
+        }
+      }
+    }
+  }
+}

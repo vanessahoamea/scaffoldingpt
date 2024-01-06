@@ -1,0 +1,41 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"job_description_title": {
+				"__TYPE__": "FieldContent",
+				"value": "sent",
+				"type": "Text"
+			},
+			"job_description_content": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Aute anim et aliqua laborum commodo id deserunt dolor eu occaecat minim veniam duis."
+						}
+					}
+				]
+			},
+			"job_requirements_title": {
+				"__TYPE__": "FieldContent",
+				"value": "slept",
+				"type": "Text"
+			},
+			"job_requirements_content": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Duis amet tempor eiusmod. Mollit quis tempor est nulla exercitation excepteur sit."
+						}
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]

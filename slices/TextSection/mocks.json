@@ -1,0 +1,29 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"title": {
+				"__TYPE__": "FieldContent",
+				"value": "ago",
+				"type": "Text"
+			},
+			"content": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Ad nostrud dolore aliqua. Id enim ut dolor fugiat anim duis. Commodo dolore labore adipisicing sint velit ipsum et sunt in aliquip elit ullamco anim sunt labore."
+						}
+					}
+				]
+			},
+			"last": {
+				"__TYPE__": "BooleanContent",
+				"value": true
+			}
+		},
+		"items": []
+	}
+]

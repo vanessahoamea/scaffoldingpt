@@ -1,0 +1,26 @@
+{
+  "id": "map",
+  "type": "SharedSlice",
+  "name": "Map",
+  "description": "Map",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "place_id": {
+          "type": "Text",
+          "config": {
+            "label": "Place ID",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}
