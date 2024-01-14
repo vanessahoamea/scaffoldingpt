@@ -4,7 +4,11 @@ import { useEffect, useId } from "react";
 import { useForm } from "react-hook-form";
 import type { ApplyInputs } from "@/utils/types";
 
-export default function ApplyForm()
+interface ApplyFormProps
+{
+    showToast: (type: "success" | "error", message: string) => void
+};
+export default function ApplyForm(props: ApplyFormProps)
 {
     const formId = useId();
     const { register, handleSubmit, formState, reset } = useForm<ApplyInputs>();
@@ -22,16 +26,16 @@ export default function ApplyForm()
                 throw new Error();
             return res.json();
         })
-        .then((_) => alert("Aplicația dvs. a fost trimisă cu succes. :)"))
-        .catch((_) => alert("Aplicația dvs. nu a putut fi trimisă. Vă rugăm să încercați din nou mai târziu."));
+        .then((_) => props.showToast("success", "Aplicația dvs. a fost trimisă cu succes."))
+        .catch((_) => props.showToast("error", "Aplicația dvs. nu a putut fi trimisă. Vă rugăm să încercați din nou mai târziu."));
     }
 
     function alertError(): void
     {
         if(errors.name || errors.surname)
-            alert("Vă rugăm să specificați numele dvs. complet.");
+            props.showToast("error", "Vă rugăm să specificați numele dvs. complet.");
         else
-            alert("Vă rugăm să furnizați cel puțin o metodă de contact (adresă de e-mail sau număr de telefon).");
+            props.showToast("error", "Vă rugăm să furnizați cel puțin o metodă de contact (adresă de e-mail sau număr de telefon).");
     }
 
     return (

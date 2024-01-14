@@ -4,7 +4,11 @@ import { useEffect, useId } from "react";
 import { useForm } from "react-hook-form";
 import type { ContactInputs } from "@/utils/types";
 
-export default function ContactForm()
+interface ContactFormProps
+{
+    showToast: (type: "success" | "error", message: string) => void
+};
+export default function ContactForm(props: ContactFormProps)
 {
     const formId = useId();
     const { register, handleSubmit, formState, reset } = useForm<ContactInputs>();
@@ -22,18 +26,18 @@ export default function ContactForm()
                 throw new Error();
             return res.json();
         })
-        .then((_) => alert("Mesajul dvs. a fost trimis cu succes. :)"))
-        .catch((_) => alert("Mesajul dvs. nu a putut fi trimis. Vă rugăm să încercați din nou mai târziu."));
+        .then((_) => props.showToast("success", "Mesajul dvs. a fost trimis cu succes."))
+        .catch((_) => props.showToast("error", "Mesajul dvs. nu a putut fi trimis. Vă rugăm să încercați din nou mai târziu."));
     };
 
     function alertError(): void
     {
         if(errors.name)
-            alert("Vă rugăm să specificați numele dvs.");
+            props.showToast("error", "Vă rugăm să specificați numele dvs.");
         else if(errors.phone || errors.email)
-            alert("Vă rugăm să furnizați cel puțin o metodă de contact (adresă de e-mail sau număr de telefon).");
+            props.showToast("error", "Vă rugăm să furnizați cel puțin o metodă de contact (adresă de e-mail sau număr de telefon).");
         else
-            alert("Vă rugăm să îi adăugați mesajului un subiect.");
+            props.showToast("error", "Vă rugăm să îi adăugați mesajului un subiect.");
     }
     
     return (

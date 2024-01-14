@@ -13,7 +13,7 @@ export type CallToActionProps = SliceComponentProps<Content.CallToActionSlice>;
  */
 const CallToAction = ({ slice }: CallToActionProps): JSX.Element => {
   return (
-    <div className="h-72 sm:h-64 relative overflow-hidden text-white text-center">
+    <div className="h-72 sm:h-64 relative overflow-hidden bg-primary text-white text-center">
       <Image
         src={slice.primary.image.url ?? "/cta.jpg"}
         width={0}

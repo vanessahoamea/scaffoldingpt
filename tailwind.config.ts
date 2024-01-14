@@ -19,7 +19,8 @@ const config: Config = {
         "hr": "1.5px"
       },
       screens: {
-        "xs": "320px"
+        "xxs": "320px",
+        "xs": "384px"
       },
       gridTemplateColumns: {
         "expand-right": "minmax(200px, 400px) auto",

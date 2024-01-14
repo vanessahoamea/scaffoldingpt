@@ -13,7 +13,7 @@ interface ApplyInputs
     phone: string,
     email: string,
     comments: string
-}
+};
 
 interface ContactInputs
 {
@@ -38,6 +38,12 @@ interface ReviewData
     job_title: KeyTextField | undefined,
     rating: NumberField | undefined,
     content: RichTextField | undefined
-}
+};
 
-export type { AboutData, ApplyInputs, ContactInputs, ImageData, ReviewData };
+interface ToastData
+{
+    type: "success" | "error"
+    message: string
+};
+
+export type { AboutData, ApplyInputs, ContactInputs, ImageData, ReviewData, ToastData };

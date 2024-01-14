@@ -77,8 +77,9 @@ form button {
     @apply block;
 }
 
+/* services page styles */
 .gallery-container {
-    @apply w-full xs:w-[calc(50%-4px)] md:w-[calc(100%/3-4px)] cursor-pointer relative;
+    @apply w-full xxs:w-[calc(50%-4px)] md:w-[calc(100%/3-4px)] cursor-pointer relative;
 }
 .gallery-container::after {
     content: "";

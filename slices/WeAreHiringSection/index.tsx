@@ -12,9 +12,7 @@ export type WeAreHiringSectionProps =
 /**
  * Component for "WeAreHiringSection" Slices.
  */
-const WeAreHiringSection = ({
-  slice,
-}: WeAreHiringSectionProps): JSX.Element => {
+const WeAreHiringSection = ({ slice }: WeAreHiringSectionProps): JSX.Element => {
   return (
     <section className="px-8 md:px-16 pt-20">
       <h2 className="text-primary text-5xl text-center font-bold">{slice.primary.title}</h2>

@@ -12,9 +12,7 @@ export type AcknowledgementsSectionProps =
 /**
  * Component for "AcknowledgementsSection" Slices.
  */
-const AcknowledgementsSection = ({
-  slice,
-}: AcknowledgementsSectionProps): JSX.Element => {
+const AcknowledgementsSection = ({ slice }: AcknowledgementsSectionProps): JSX.Element => {
   return (
     <section className="px-8 md:px-16 pt-20 pb-20">
       <h2 className="text-primary text-3xl text-center font-bold">{slice.primary.title}</h2>
