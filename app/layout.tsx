@@ -40,6 +40,7 @@ export default function RootLayout({ children }: { children: React.ReactNode })
                 <Navbar />
                 {children}
                 <Footer />
+                <div id="toast-section" className="fixed z-10 top-0 right-0 mt-3 mx-3 xs:ml-0"></div>
                 <PrismicPreview repositoryName={repositoryName} />
             </body>
         </html>
