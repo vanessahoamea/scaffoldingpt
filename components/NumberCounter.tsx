@@ -31,10 +31,12 @@ export default function NumberCounter(props: NumberCounterProps)
     }, [value, props.count]);
 
     return (
-        <div className="bg-gray-300 w-full h-36 lg:w-36 p-4 flex flex-col justify-around items-center gap-1 rounded-sm">
-            <FontAwesomeIcon icon={props.icon} className="text-3xl text-primary" />
-            <span data-value={props.count} className="text-center text-3xl font-semibold">{value}{props.unit}</span>
-            <span className="text-center text-sm">{props.text}</span>
+        <div className="bg-gray-300 w-full h-36 lg:w-36 p-4 flex flex-col justify-between items-center gap-1 rounded-sm">
+            <div className="flex flex-col items-center gap-1">
+                <FontAwesomeIcon icon={props.icon} className="text-3xl text-primary" />
+                <span data-value={props.count} className="text-center text-3xl font-semibold">{value}{props.unit}</span>
+            </div>
+            <span className="text-center text-sm grow-[1] flex items-center">{props.text}</span>
         </div>
     );
 }
